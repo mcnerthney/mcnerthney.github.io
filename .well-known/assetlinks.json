@@ -12,7 +12,7 @@
   {
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
-    “greendot_comment”: “gobankrewards debug”.
+    “namespace”: “gobankrewards debug”,
     "namespace": "android_app",
     "package_name": "com.greendotcorp.gobank.rewards",
     "sha256_cert_fingerprints":
