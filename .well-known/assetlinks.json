@@ -1,10 +1,12 @@
 [
   {
+    "_greendot_description_": "gobankrewards seetest",
+    
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
     "target": {
-      "_greendot_comment": "gobankrewards seetest",
+
       "namespace": "android_app",
       "package_name": "com.greendotcorp.gobank.rewards",
       "sha256_cert_fingerprints": [
@@ -13,11 +15,12 @@
     }
   },
   {
+    "_greendot_description_": "gobankrewards debug",
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
     "target": {
-      "_greendot_comment": "gobankrewards debug",
+
       "namespace": "android_app",
       "package_name": "com.greendotcorp.gobank.rewards",
       "sha256_cert_fingerprints": [
