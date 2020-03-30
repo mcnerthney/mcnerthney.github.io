@@ -1,5 +1,20 @@
 [
   {
+    "_greendot_description_": "gobankrewards play store release",
+    
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+
+      "namespace": "android_app",
+      "package_name": "com.greendotcorp.gobank.rewards",
+      "sha256_cert_fingerprints": [
+        "D0:06:17:AE:B6:EB:64:98:AE:0C:4E:54:88:39:A0:4E:B5:1E:01:69:53:7F:B2:2B:3C:92:AB:10:2C:CB:7E:0E"
+      ]
+    }
+  }
+  {
     "_greendot_description_": "gobankrewards seetest",
     
     "relation": [
@@ -15,7 +30,7 @@
     }
   },
   {
-    "_greendot_description_": "gobankrewards debug",
+    "_greendot_description_": "gobankrewards dev and qa",
     "relation": [
       "delegate_permission/common.handle_all_urls"
     ],
