@@ -1,0 +1,20 @@
+[
+  {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.greendotcorp.gobank.rewards",
+    "sha256_cert_fingerprints":
+    ["7B:CB:16:C4:D8:8F:44:4E:65:A7:94:22:E5:EA:3E:97:7A:BF:C2:43:9B:C0:B8:62:A8:C2:86:BF:EE:27:F3:A6"]
+  }
+},
+ {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.greendotcorp.gobank.rewards",
+    "sha256_cert_fingerprints":
+    ["00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"]
+  }
+}
+]
