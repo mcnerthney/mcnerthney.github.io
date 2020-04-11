@@ -12,7 +12,7 @@
 {
     "colors": {
         //app branding
-        "primary":              "#000000",
+        "primary":              "@Color.adaptive2,
         "primaryDark":          "#3F0A9D",
         "secondary":            "#005CFF",
         "tertiary":             "#E81388",
@@ -46,7 +46,7 @@
         //weights can be Ultralight, Light, Thin, Regular, Medium, Semibold, Bold, Heavy, Black
         //"SYS" mean default system font (Roboto for Android, San Francisco for iOS)
         
-        "mainTitle":            {"family":"AvenirNext", "size":22, "weight":"Regular"},
+        "mainTitle":            {"family":"AvenirNext", "size":44, "weight":"Regular"},
         
         "subTitle":             {"family":"AvenirNext", "size":20, "weight":"Regular"},
         "subTitleEmphasis":     {"family":"AvenirNext", "size":18, "weight":"Demibold"},
