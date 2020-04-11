@@ -1,0 +1,377 @@
+//
+//
+// GRAPHIC CONTENT AND APPEARANCE INFORMATION:
+// content:             Content within a view, can be a text string, a color, an image or a lottie file (String Value)
+//                      - Example 1: "<abc>" will be a text string
+//                      - Example 2: "<abc>.json" will be a lottie file
+//                      - Example 3: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 4: "#<Hex Code>" will be a color for the respective hex code
+//                      - Example 5: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 6: "<abc>.pdf" or "<abc>.png" or "<abc>.jpg" will be an image
+//
+//
+// shadow:              Gives the information of the shadow to be applied to a view
+//                      - must be defined as a combination of "radius", "color", "height", "width" & "opacity"
+// shadow -> width:     Shadow's XOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> height:    Shadow's YOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> opacity:   Shadow's Opacity (Numeric or "@Dimen.<abc>" Value && < 1)
+// shadow -> radius:    Radius of the shadow to be applied (Numeric or "@Dimen.<abc>" Value)
+// shadow -> color:     Shadow's Color, Please refer to Content Example 3 above (String Value)
+//
+//
+// TEXTUAL CONTENT AND APPEARANCE INFORMATION:
+// font -> family:      Family of the font, can be "AvenirNext", "Nasalization" etc.. (String Value)
+// font -> size:        Font (i.e. Text Font Family, Size & Weight) for a composite of a view (Numeric or "@Dimen.<abc>" Value)
+// font -> weight:      Weight of the font, can be "Light", "Ultralight", "Bold", "Demibold", "Regular", "Medium" etc.. (String Value)
+//
+// composite:           Composite (i.e. Text Font and Text Color) for a view which would have any text
+//                      - e.g. a content value "@Composite.<abc>" will be a composite available via Theme object
+//                      - can also be defined via an explicit combination of "font" & "color"
+// composite -> font:   Font (i.e. Text Font Family, Size & Weight) for a composite of a view (String Value)
+//                      - e.g. a content value "@Font.<abc>" will be a font available via Theme object
+//                      - can also be defined via an explicit combination of "weight", "family" & "size"
+// composite -> color:  Text's Color for a composite of a view, Please refer to content example 3 above (String Value)
+//
+//
+// LAYOUT AND SIZING INFORMATION(s):
+// width:               Width of the view (Numeric or "@Dimen.<abc>" Value )
+// height:              Height of the view (Numeric or "@Dimen.<abc>" Value )
+// centerX:             A Bool determining if this view will be centered to the superView along the X axis (Boolean Value)
+// centerY:             A Bool determining if this view will be centered to the superView along the Y axis (Boolean Value)
+// widthByHeight:       is the ratio of the width divided by the height of that view to itself (Numeric or "@Dimen.<abc>" Value)
+// bottom:              Spacing between the view and the sibling view under it or the superView (Numeric or "@Dimen.<abc>" Value)
+// top:                 Spacing between the view and the sibling view on top of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// leading:             Spacing between the view and the sibling view on left of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// trailing:            Spacing between the view and the sibling view on right of it or the superView (Numeric or "@Dimen.<abc>" Value)
+//
+// Following are proprietary to CollectionView, where:
+// rowItemCount:        Number of items in a row (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceY:     Vertical space between two rows (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceX:     Horizontal space between two items (Numeric or "@Dimen.<abc>" Value)
+//
+//
+// CUSTOM VIEW KEYS/IDENTIFIERS:
+// -> view: The current view
+//
+// -> header: Please refer to classic_light-home.json
+//
+// -> tile: User information tile for the Account Dashboard
+// tile -> profileImage: The image for the user's profile
+// tile -> titleLabel: The label for the title of the user information
+// tile -> descriptionLabel: The label for the description of the user information
+// tile -> disclosureImage: The image for the disclouse icon of the user information tile
+//
+// -> table: The table which lists setting items
+// table -> items: The setting items inside the table
+// item -> iconImage: The image for icon of the setting item
+// item -> titleLabel: The label for the title of the setting item
+// item -> descriptionLabel: The label for the subTitle of the setting item
+// item -> disclosureImage: The image for icon of the setting item disclosure
+// item -> iconBackgroundImage: The image for the background of the icon image
+//
+// -> footer: Please refer to classic_light-home.json
+//
+//
+
+{
+    "view":{
+        "content":"#00000000"
+    },
+    
+    "header":{
+        "view":{
+            "bottom":16,
+            "widthByHeight":1.89,
+            "content":"header.json"
+        },
+        "rightButton":{
+            "leading":20,
+            "width":44,
+            "content":"logout.pdf"
+        },
+        "leftButton":{
+            "leading":20,
+            "width":44,
+            "content":"notification.json",
+            "composite":{
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        }
+    },
+    
+    "tile":{
+        "view":{
+            "leading":20,
+            "trailing":20,
+            "widthByHeight":2.78,
+            "content":"accountTile.pdf",
+            "shadow":{
+                "radius":5.0,
+                "height":5.0,
+                "color":"@Color.black",
+                "opacity":0.25
+            }
+        },
+        "profileImage":{
+            "leading":20,
+            "width":60,
+            "content":"userAvatar.pdf"
+        },
+        "disclosureImage":{
+            "trailing":16,
+            "content":"accountDisclosure.pdf"
+        },
+        "titleLabel":{
+            "leading":16,
+            "trailing":20,
+            "content":"Personal Info",
+            "composite":{
+                "font":"@Font.smallTitle",
+                "color":"#25333B"
+            }
+        },
+        "descriptionLabel":{
+            "leading":16,
+            "trailing":20,
+            "content":"Mailing address, email, mobile number",
+            "composite":{
+                "font":"@Font.smallText",
+                "color":"#25333B"
+            }
+        },
+        "extraLabel":{
+            "leading":16,
+            "trailing":20,
+            "content":"State, zipCode",
+            "composite":{
+                "font":"@Font.smallText",
+                "color":"#25333B"
+            }
+        }
+    },
+    
+    "table":{
+        "view":{
+            "content":"#FFFFFF00"
+        },
+        "settings":[
+            {
+                "view":{
+                    "top":20,
+                    "height":50,
+                    "content":"#FFFFFF00"
+                },
+                "iconBackgroundImage":{
+                    "width":50,
+                    "leading":20,
+                    "trailing":16,
+                    "widthByHeight":1,
+                    "content":"@Color.white"
+                },
+                "iconImage":{
+                    "content":"accountSecurity.pdf"
+                },
+                "titleLabel":{
+                    "trailing":16,
+                    "content":"Security Settings",
+                    "composite":{
+                        "font":"@Font.regularText",
+                        "color":"#25333B"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"Auto-logout, trusted devices and more",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#25333B"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":16,
+                    "content":"accountDisclosure.pdf"
+                }
+            },
+            {
+                "view":{
+                    "top":20,
+                    "height":50,
+                    "content":"#FFFFFF00"
+                },
+                "iconBackgroundImage":{
+                    "width":50,
+                    "leading":20,
+                    "trailing":16,
+                    "widthByHeight":1,
+                    "content":"@Color.white"
+                },
+                "iconImage":{
+                    "content":"accountManageCard.pdf"
+                },
+                "titleLabel":{
+                    "trailing":16,
+                    "content":"Manage Card",
+                    "composite":{
+                        "font":"@Font.regularText",
+                        "color":"#25333B"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"Set your PIN, report problems",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#25333B"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":16,
+                    "content":"accountDisclosure.pdf"
+                }
+            },
+            {
+                "view":{
+                    "top":20,
+                    "height":50,
+                    "content":"#FFFFFF00"
+                },
+                "iconBackgroundImage":{
+                    "width":50,
+                    "leading":20,
+                    "trailing":16,
+                    "widthByHeight":1,
+                    "content":"@Color.white"
+                },
+                "iconImage":{
+                    "content":"accountNotifications.pdf"
+                },
+                "titleLabel":{
+                    "trailing":16,
+                    "content":"Notifications",
+                    "composite":{
+                        "font":"@Font.regularText",
+                        "color":"#25333B"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"Customize alerts",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#25333B"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":16,
+                    "content":"accountDisclosure.pdf"
+                }
+            },
+            {
+                "view":{
+                    "top":20,
+                    "height":50,
+                    "content":"#FFFFFF00"
+                },
+                "iconBackgroundImage":{
+                    "width":50,
+                    "leading":20,
+                    "trailing":16,
+                    "widthByHeight":1,
+                    "content":"@Color.white"
+                },
+                "iconImage":{
+                    "content":"accountHelpLegal.pdf"
+                },
+                "titleLabel":{
+                    "trailing":16,
+                    "content":"Help & Legal",
+                    "composite":{
+                        "font":"@Font.regularText",
+                        "color":"#25333B"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"FAQ & legal documentation",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#25333B"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":16,
+                    "content":"accountDisclosure.pdf"
+                }
+            },
+            {
+                "view":{
+                    "top":20,
+                    "height":50,
+                    "content":"#FFFFFF00"
+                },
+                "iconBackgroundImage":{
+                    "width":50,
+                    "leading":20,
+                    "trailing":16,
+                    "widthByHeight":1,
+                    "content":"@Color.white"
+                },
+                "iconImage":{
+                    "content":"accountThemes.pdf"
+                },
+                "titleLabel":{
+                    "trailing":16,
+                    "content":"Themes",
+                    "composite":{
+                        "font":"@Font.regularText",
+                        "color":"#25333B"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"Change your app style",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#25333B"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":16,
+                    "content":"accountDisclosure.pdf"
+                }
+            },
+            {
+                "view":{
+                    "top":20,
+                    "height":50,
+                    "content":"#FFFFFF00"
+                },
+                "iconBackgroundImage":{
+                    "width":50,
+                    "leading":20,
+                    "trailing":16,
+                    "widthByHeight":1,
+                    "content":"@Color.white"
+                },
+                "iconImage":{
+                    "content":"accountSupport.pdf"
+                },
+                "titleLabel":{
+                    "trailing":16,
+                    "content":"Support",
+                    "composite":{
+                        "font":"@Font.regularText",
+                        "color":"#25333B"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"Support and live agents",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#25333B"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":16,
+                    "content":"accountDisclosure.pdf"
+                }
+            }
+        ]
+    }
+}

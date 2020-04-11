@@ -1,0 +1,483 @@
+//
+// GRAPHIC CONTENT AND APPEARANCE INFORMATION:
+// content:             Content within a view, can be a text string, a color, an image or a lottie file (String Value)
+//                      - Example 1: "<abc>" will be a text string
+//                      - Example 2: "<abc>.json" will be a lottie file
+//                      - Example 3: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 4: "#<HexCode>" will be a color for the respective hex code
+//                      - Example 5: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 6: "<abc>.pdf" or "<abc>.png" or "<abc>.jpg" will be an image
+//
+//
+// shadow:              Gives the information of the shadow to be applied to a view
+//                      - must be defined as a combination of "radius", "color", "height", "width" & "opacity"
+// shadow -> width:     Shadow's XOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> height:    Shadow's YOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> opacity:   Shadow's Opacity (Numeric or "@Dimen.<abc>" Value && < 1)
+// shadow -> radius:    Radius of the shadow to be applied (Numeric or "@Dimen.<abc>" Value)
+// shadow -> color:     Shadow's Color, Please refer to Content Example 3 above (String Value)
+//
+//
+// TEXTUAL CONTENT AND APPEARANCE INFORMATION:
+// font -> family:      Family of the font, can be "AvenirNext", "Nasalization" etc.. (String Value)
+// font -> size:        Font (i.e. Text Font Family, Size & Weight) for a composite of a view (Numeric or "@Dimen.<abc>" Value)
+// font -> weight:      Weight of the font, can be "Light", "Ultralight", "Bold", "Demibold", "Regular", "Medium" etc.. (String Value)
+//
+// composite:           Composite (i.e. Text Font and Text Color) for a view which would have any text
+//                      - e.g. a content value "@Composite.<abc>" will be a composite available via Theme object
+//                      - can also be defined via an explicit combination of "font" & "color"
+// composite -> font:   Font (i.e. Text Font Family, Size & Weight) for a composite of a view (String Value)
+//                      - e.g. a content value "@Font.<abc>" will be a font available via Theme object
+//                      - can also be defined via an explicit combination of "weight", "family" & "size"
+// composite -> color:  Text's Color for a composite of a view, Please refer to content example 3 above (String Value)
+//
+//
+// LAYOUT AND SIZING INFORMATION(s):
+// width:               Width of the view (Numeric or "@Dimen.<abc>" Value )
+// height:              Height of the view (Numeric or "@Dimen.<abc>" Value )
+// centerX:             A Bool determining if this view will be centered to the superView along the X axis (Boolean Value)
+// centerY:             A Bool determining if this view will be centered to the superView along the Y axis (Boolean Value)
+// widthByHeight:       is the ratio of the width divided by the height of that view to itself (Numeric or "@Dimen.<abc>" Value)
+// bottom:              Spacing between the view and the sibling view under it or the superView (Numeric or "@Dimen.<abc>" Value)
+// top:                 Spacing between the view and the sibling view on top of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// leading:             Spacing between the view and the sibling view on left of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// trailing:            Spacing between the view and the sibling view on right of it or the superView (Numeric or "@Dimen.<abc>" Value)
+//
+// Following are proprietary to CollectionView, where:
+// rowItemCount:        Number of items in a row (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceY:     Vertical space between two rows (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceX:     Horizontal space between two items (Numeric or "@Dimen.<abc>" Value)
+//
+//
+// CUSTOM VIEW KEYS/IDENTIFIERS:
+// -> view: The current view
+//
+// -> header: The dashboard header for Home
+// header -> leftButton: The button to the left of the dashboard header
+// balanceCarousel -> titleLabel: The titleLabel for the balanceCarousel
+// header -> rightButton: The button to the right of the dashboard header
+// header -> balanceCarousel: The balanceCarousel within dashboard header
+// balanceCarousel -> descriptionLabel: The descriptionLabel for the balanceCarousel
+//
+// -> cardStatusButton: The object holding the lotties for locked and unlocked status of the right/lock button
+// cardStatusButton -> lock: The locked status button
+// cardStatusButton -> unlock: The unlocked status button
+//
+// -> tile: The user information tile for Home
+// tile -> starImage: The star image inside the tile
+// tile -> levelLabel: The level label inside the tile
+// tile -> pointsLabel: The points label inside the tile
+// tile -> profileImage: The profile image inside the tile
+// tile -> profileBackgroundImage: The background of the profile image inside the tile
+//
+// -> recentTransactions: The transaction drawer for Home
+// recentTransactions -> topView: The top half of the transaction drawer
+// recentTransactions -> bottomView: The bottom half of the transaction drawer
+// recentTransactions -> headerTitle: The title within top half of the transaction drawer
+// recentTransactions -> expandButton: The expand button at the right of the top half of the transaction drawer
+// recentTransactions -> noTransactionRow: The tableView row for the case there are no recent transaction(s) to be shown
+// noTransactionRow -> informationLabel: The label within the the no transaction row
+// recentTransactions -> row: The tableView row for the transaction(s)
+// row -> typeLabel: The label which shows the type of the transaction within the row
+// row -> dateLabel: The label which shows the date of the transaction within the row
+// row -> statusLabel: The label which shows the status of the transaction within the row
+// row -> transactorBackgroundImage: The background image of the transactor within transaction row
+// row -> creditAmountLabel: The label which shows amount for the credit transaction within the row
+// row -> initialsLabel: The label which shows the initials of the transactor within transaction row
+// row -> pendingAmountLabel: The label which shows amount for the pending transaction within the row
+// row -> confirmedAmountLabel: The label which shows amount for the debit transaction within the row
+//
+// -> capabilitiesGrid: The capabilitiesGrid for Home
+// capabilitiesGrid -> items: The tile item within the capabilitiesGrid
+// item -> iconImage: The image for the icon of the capability
+// item -> titleLabel: The label for the title of the capability
+// item -> backgroundImage: The image for the background of the icon of the capability
+//
+// -> footer: The banner at the bottom of the Home
+//
+//
+
+{
+    "view":{
+        "content":"#00000000"
+    },
+    
+    "header":{
+        "view":{
+            "widthByHeight":1.89,
+            "content":"header.json"
+        },
+        "balanceCarousel": {
+            "view":{
+                "top":36,
+                "content":"#FFFFFF00"
+            },
+            "titleLabel":{
+                "composite":{
+                    "font":"@Font.largerNumeral",
+                    "color":"@Color.white"
+                }
+            },
+            "descriptionLabel":{
+                "composite":{
+                    "font":"@Font.mediumText",
+                    "color":"@Color.white"
+                }
+            }
+        },
+        "rightButton":{
+            "width":56,
+            "trailing":4
+        },
+        "leftButton":{
+            "width":56,
+            "leading":4,
+            "content":"notification.json",
+            "composite":{
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        }
+    },
+    
+    "cardStatusButton": {
+        "lock":"cardLock.json",
+        "unlock":"cardUnlock.json"
+    },
+    
+    "tile":{
+        "view":{
+            "bottom":16,
+            "leading":20,
+            "trailing":20,
+            "widthByHeight":5.33,
+            "content":"homeTile.pdf",
+            "shadow":{
+                "radius":5.0,
+                "color":"@Color.black",
+                "opacity":0.25,
+                "height":5.0
+            }
+        },
+        "profileBackgroundImage":{
+            "content":""
+        },
+        "profileImage":{
+            "leading":16,
+            "width":40,
+            "trailing":8,
+            "content":"userAvatar.pdf"
+        },
+        "levelLabel":{
+            "content":"Level 7",
+            "composite":{
+                "font":"@Font.smallTitle",
+                "color":"#25333B"
+            }
+        },
+        "pointsLabel":{
+            "content":"5,000",
+            "composite":{
+                "font":"@Font.smallTitle",
+                "color":"#25333B"
+            }
+        },
+        "starImage":{
+            "width":32,
+            "leading":8,
+            "trailing":16,
+            "content":"userLevelStar.pdf"
+        }
+    },
+    
+    "recentTransactions":{
+        "view":{
+            "top": 52,
+            "bottom": 16,
+            "leading": 20,
+            "trailing": 20,
+            "content": "@Color.white",
+            "shadow":{
+                "radius":5.0,
+                "color":"@Color.black",
+                "opacity":0.25,
+                "height":5.0
+            }
+        },
+        "topView":{
+            "widthByHeight":8,
+            "content":"transactionsTop.pdf"
+        },
+        "bottomView":{
+            "widthByHeight":16,
+            "content":"transactionsBottom.pdf"
+        },
+        "headerTitle":{
+            "leading":16,
+            "content":"Recent Transactions",
+            "composite":{
+                "font":"@Font.regularText",
+                "color":"@Color.black"
+            }
+        },
+        "expandButton":{
+            "trailing":16,
+            "content":"transactionsExpand.pdf"
+        },
+        "noTransactionRow":{
+            "view":{
+                "height":75
+            },
+            "informationLabel":{
+                "content":"No recent transactions",
+                "composite": {
+                    "font": "@Font.mediumText",
+                    "color":"@Color.adaptive5"
+                }
+            }
+        },
+        "row":{
+            "view":{
+                "height":64,
+                "leading":20,
+                "trailing":20,
+                "widthByHeight":8
+            },
+            "initialsLabel":{
+                "content":"transactionDrawerBackground.pdf"
+            },
+            "typeLabel":{
+                "leading":8,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"#475860"
+                }
+            },
+            "dateLabel":{
+                "leading":8,
+                "composite":{
+                    "font":"@Font.xSmallText",
+                    "color":"#475860"
+                }
+            },
+            "statusLabel":{
+                "leading":8,
+                "composite":{
+                    "font":"@Font.xSmallText",
+                    "color":"#C5CED4"
+                }
+            },
+            "transactorBackgroundImage":{
+                "height":48,
+                "leading":20,
+                "content":"@Color.adaptive2"
+            },
+            "creditAmountLabel":{
+                "trailing":20,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"#C5CED4"
+                }
+            },
+            "pendingAmountLabel":{
+                "trailing":20,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"#C5CED4"
+                }
+            },
+            "confirmedAmountLabel":{
+                "trailing":20,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"@Color.success"
+                }
+            }
+        }
+    },
+    
+    "capabilitiesGrid":{
+        "view":{
+            "leading":20,
+            "trailing":20,
+            "bottom":20,
+            "rowItemCount":3,
+            "interItemSpaceX":20,
+            "interItemSpaceY":20,
+            "content":"#FFFFFF00"
+        },
+        "items":[
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridLocations.json"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Locations",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "height":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridDirectDeposit.json"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Direct Deposit",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25,
+                        "height":5.0
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridVault.json"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Vault",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25,
+                        "height":5.0
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridMoneyBot.json"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"MoneyBot",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25,
+                        "height":5.0
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridSupport.pdf"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Support",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25,
+                        "height":5.0
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridGoBankShop.json"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"GoBank Shop",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25,
+                        "height":5.0
+                    }
+                }
+            }
+        ]
+    },
+    
+    "footer":{
+        "top":20,
+        "bottom":20,
+        "leading":20,
+        "trailing":20,
+        "widthByHeight":3.18,
+        "content":"homeFooter.pdf",
+        "shadow":{
+            "radius":5.0,
+            "color":"@Color.black",
+            "opacity":0.25,
+            "height":5.0
+        }
+    }
+}

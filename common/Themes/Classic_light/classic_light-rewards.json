@@ -1,0 +1,255 @@
+//
+//
+// GRAPHIC CONTENT AND APPEARANCE INFORMATION:
+// content:             Content within a view, can be a text string, a color, an image or a lottie file (String Value)
+//                      - Example 1: "<abc>" will be a text string
+//                      - Example 2: "<abc>.json" will be a lottie file
+//                      - Example 3: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 4: "#<Hex Code>" will be a color for the respective hex code
+//                      - Example 5: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 6: "<abc>.pdf" or "<abc>.png" or "<abc>.jpg" will be an image
+//
+//
+// shadow:              Gives the information of the shadow to be applied to a view
+//                      - must be defined as a combination of "radius", "color", "height", "width" & "opacity"
+// shadow -> width:     Shadow's XOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> height:    Shadow's YOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> opacity:   Shadow's Opacity (Numeric or "@Dimen.<abc>" Value && < 1)
+// shadow -> radius:    Radius of the shadow to be applied (Numeric or "@Dimen.<abc>" Value)
+// shadow -> color:     Shadow's Color, Please refer to Content Example 3 above (String Value)
+//
+//
+// TEXTUAL CONTENT AND APPEARANCE INFORMATION:
+// font -> family:      Family of the font, can be "AvenirNext", "Nasalization" etc.. (String Value)
+// font -> size:        Font (i.e. Text Font Family, Size & Weight) for a composite of a view (Numeric or "@Dimen.<abc>" Value)
+// font -> weight:      Weight of the font, can be "Light", "Ultralight", "Bold", "Demibold", "Regular", "Medium" etc.. (String Value)
+//
+// composite:           Composite (i.e. Text Font and Text Color) for a view which would have any text
+//                      - e.g. a content value "@Composite.<abc>" will be a composite available via Theme object
+//                      - can also be defined via an explicit combination of "font" & "color"
+// composite -> font:   Font (i.e. Text Font Family, Size & Weight) for a composite of a view (String Value)
+//                      - e.g. a content value "@Font.<abc>" will be a font available via Theme object
+//                      - can also be defined via an explicit combination of "weight", "family" & "size"
+// composite -> color:  Text's Color for a composite of a view, Please refer to content example 3 above (String Value)
+//
+//
+// LAYOUT AND SIZING INFORMATION(s):
+// width:               Width of the view (Numeric or "@Dimen.<abc>" Value )
+// height:              Height of the view (Numeric or "@Dimen.<abc>" Value )
+// centerX:             A Bool determining if this view will be centered to the superView along the X axis (Boolean Value)
+// centerY:             A Bool determining if this view will be centered to the superView along the Y axis (Boolean Value)
+// widthByHeight:       is the ratio of the width divided by the height of that view to itself (Numeric or "@Dimen.<abc>" Value)
+// bottom:              Spacing between the view and the sibling view under it or the superView (Numeric or "@Dimen.<abc>" Value)
+// top:                 Spacing between the view and the sibling view on top of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// leading:             Spacing between the view and the sibling view on left of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// trailing:            Spacing between the view and the sibling view on right of it or the superView (Numeric or "@Dimen.<abc>" Value)
+//
+// Following are proprietary to CollectionView, where:
+// rowItemCount:        Number of items in a row (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceY:     Vertical space between two rows (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceX:     Horizontal space between two items (Numeric or "@Dimen.<abc>" Value)
+//
+//
+// CUSTOM VIEW KEYS/IDENTIFIERS:
+// -> view: The current view
+//
+// -> header: Please refer to classic_light-home.json
+//
+// -> searchBar: The searchBar on the rewards dashboard
+// searchBar -> iconImage: The top half of the transaction drawer
+// searchBar -> searchTextField: The bottom half of the transaction drawer
+// searchBar -> headerTitle: The title within top half of the transaction drawer
+//
+// -> rewardsTable: The table which lists the reward deals
+// rewardsTable -> headerTitle: The title for each template's section
+// rewardsTable -> headerDescription: The subTitle for each template's section
+// rewardsTable -> rowTitle: The title for each deal's row
+// rewardsTable -> rowDescription: The subTitle for each deal's row
+// rewardsTable -> rowImage: The image for each deal
+// rewardsTable -> percentageTitle: The label for percentage for each deal for template one and two
+// rewardsTable -> smallPercentageTitle: The label for percentage for each deal for template other than one and two
+// rewardsTable -> amountTitle: The label for showing the amount information of a deal
+//
+// -> searchTable: The table which does the searching and shows the search results
+// searchTable -> headerTitle: The title for each section of the search
+// searchTable -> rowTitle: The title for each row of the search
+//
+//
+
+{
+    "view":{
+        "content":"#00000000"
+    },
+    
+    "header":{
+        "view":{
+            "widthByHeight":1.89,
+            "content":"header.json"
+        },
+        "balanceCarousel": {
+            "view":{
+                "top":36,
+                "content":"#FFFFFF00"
+            },
+            "titleLabel":{
+                "composite":{
+                    "font":"@Font.largerNumeral",
+                    "color":"@Color.white"
+                }
+            },
+            "descriptionLabel":{
+                "composite":{
+                    "font":"@Font.mediumText",
+                    "color":"@Color.white"
+                }
+            }
+        },
+        "rightButton":{
+            "width":56,
+            "trailing":4,
+            "content":"wallet.pdf",
+            "composite":{
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        }
+    },
+    
+    "searchBar":{
+        "view":{
+            "leading":20,
+            "trailing":20,
+            "widthByHeight":6.4,
+            "content":"searchBar.pdf",
+            "shadow":{
+                "radius":5.0,
+                "height":5.0,
+                "color":"@Color.black",
+                "opacity":0.25
+            }
+        },
+        "iconImage":{
+            "height": 20.0,
+            "content":"search.pdf"
+        },
+        "searchTextField":{
+            "composite":{
+                "font":"@Font.regularText",
+                "color":"#25333B"
+            }
+        },
+        "searchClearIcon":{
+            "height": 48.0,
+            "content":"searchClose.pdf"
+        },
+        "searchPlaceholder":{
+            "content":"There's much more. Search here.",
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"@Color.adaptive2"
+            }
+        }
+    },
+    
+    "rewardsTable":{
+        "view":{
+            "content":"#00000000",
+            "top": 12.0,
+            "shadow":{
+                "radius":5.0,
+                "height":5.0,
+                "color":"@Color.black",
+                "opacity":0.25
+            }
+        },
+        "headerTitle":{
+            "height":20.0,
+            "content":"@Color.viewBackground",
+            "composite":{
+                "font":"@Font.regularTextEmphasis",
+                "color":"#25333B"
+            }
+        },
+        "headerDescription":{
+            "content":"@Color.viewBackground",
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"#25333B"
+            }
+        },
+        "rowTitle":{
+            "height":44.0,
+            "composite":{
+                "font":"@Font.smallTitle",
+                "color":"#25333B"
+            }
+        },
+        "rowDescription":{
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"#25333B"
+            }
+        },
+        "rowImage":{
+            "widthByHeight":1.58,
+            "content":"rowIcon.pdf"
+        },
+        "percentageTitle": {
+            "composite":{
+                "font":"@Font.mainTitle",
+                "color":"@Color.white"
+            }
+        },
+        "smallPercentageTitle": {
+            "composite":{
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        },
+        "amountTitle": {
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"#25333B"
+            }
+        }
+    },
+    
+    "searchTable":{
+        "view":{
+            "content": "#00000000"
+        },
+        "headerTitle":{
+            "height":40.0,
+            "content":"#00000000",
+            "composite":{
+                "font":"@Font.regularTextEmphasis",
+                "color":"#25333B"
+            }
+        },
+        "rowTitle":{
+            "content":"#00000000",
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"#25333B"
+            }
+        },
+        "noRecordsTitle":{
+            "content":"No results found",
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"@Color.adaptive5"
+            }
+        },
+        "header":{
+            "content":"#F1F4FB"
+        },
+        "searchTypeButton":{
+            "height":24.0,
+            "content":"@Color.adaptive2",
+            "composite":{
+                "font":"@Font.smallText",
+                "color": "@Color.white"
+            }
+        }
+    }
+}

@@ -1,0 +1,124 @@
+{
+    "header": {
+        "view": {
+            "widthByHeight":1.89,
+            "content":"header.json"
+        }
+    },
+    "accountTile": {
+        "image":"challengesAccountTile.pdf",
+        "nameComposite": {
+            "font":"@Font.subTitle",
+            "color":"@Color.primaryDark"
+        },
+        "levelComposite": {
+            "font":"@Font.mediumText",
+            "color":"@Color.primaryDark"
+        },
+        "pointsComposite": {
+            "font":"@Font.mediumText",
+            "color":"@Color.black"
+        },
+        "profileImage":{
+            "content":"userAvatar.pdf"
+        },
+        "starImage":{
+            "content":"challengesStar.pdf"
+        },
+        "progressBar": {
+            "backgroundColor": "@Color.primary",
+            "progressColor": "@Color.success",
+            "progressBorderColor": "@Color.primaryDark",
+            "borderColor": "@Color.primaryDark",
+            "leftComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "rightComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "centerComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "trailingComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        }
+    },
+    "achievementTile": {
+        "view": {
+            "height": 90
+         },
+        "badgeItem": {
+            "height": 90,
+            "width": 90
+        }
+    },
+    "sectionHeader": {
+        "titleComposite": {
+            "font":"@Font.regularTextEmphasis",
+            "color":"@Color.adaptive5"
+        },
+        "descriptionComposite": {
+            "font":"@Font.smallText",
+            "color":"@Color.adaptive5"
+        }
+    },
+    "cardTile": {
+        "view": {
+            "content": "challengesCard.pdf"
+        },
+        "subTitleComposite": {
+            "font":"@Font.mediumText",
+            "color":"@Color.tertiary"
+        },
+        "titleComposite": {
+            "font":"@Font.regularTextEmphasis",
+            "color":"@Color.black"
+        },
+        "descriptionComposite": {
+            "font":"@Font.smallText",
+            "color":"@Color.black"
+        },
+        "pointsPill": {
+            "color": "@Color.primaryDark",
+            "composite" : {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "image": "challengesStar.pdf"
+        },
+        "progressBar": {
+            "backgroundColor": "@Color.primary",
+            "progressColor": "@Color.success",
+            "progressBorderColor": "@Color.primaryDark",
+            "borderColor": "@Color.primaryDark",
+            "leftComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "rightComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "centerComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "trailingComposite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        },
+        "promotionsBar": {
+            "color": "@Color.tertiary",
+            "composite": {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            }
+        }
+    }
+}
