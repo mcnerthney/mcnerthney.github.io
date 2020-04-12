@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="theme"
+            type="com.greendotcorp.core.theme.lib.Theme" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/theme_view_pager_fragment_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ThemeViewPagerFragment">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            t_background="@{theme.tabBar.coverBackground"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/viewpager_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:visibility="gone"
+            app:t_animation='@{theme.tabBar.background}' />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/theme_view_pager_fragment_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

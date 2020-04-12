@@ -1,0 +1,348 @@
+//
+//
+// GRAPHIC CONTENT AND APPEARANCE INFORMATION:
+// content:             Content within a view, can be a text string, a color, an image or a lottie file (String Value)
+//                      - Example 1: "<abc>" will be a text string
+//                      - Example 2: "<abc>.json" will be a lottie file
+//                      - Example 3: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 4: "#<Hex Code>" will be a color for the respective hex code
+//                      - Example 5: "@Color.<abc>" will be a color available via Theme object
+//                      - Example 6: "<abc>.pdf" or "<abc>.png" or "<abc>.jpg" will be an image
+//
+//
+// shadow:              Gives the information of the shadow to be applied to a view
+//                      - must be defined as a combination of "radius", "color", "height", "width" & "opacity"
+// shadow -> width:     Shadow's XOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> height:    Shadow's YOffset (Numeric or "@Dimen.<abc>" Value)
+// shadow -> opacity:   Shadow's Opacity (Numeric or "@Dimen.<abc>" Value && < 1)
+// shadow -> radius:    Radius of the shadow to be applied (Numeric or "@Dimen.<abc>" Value)
+// shadow -> color:     Shadow's Color, Please refer to Content Example 3 above (String Value)
+//
+//
+// TEXTUAL CONTENT AND APPEARANCE INFORMATION:
+// font -> family:      Family of the font, can be "AvenirNext", "Nasalization" etc.. (String Value)
+// font -> size:        Font (i.e. Text Font Family, Size & Weight) for a composite of a view (Numeric or "@Dimen.<abc>" Value)
+// font -> weight:      Weight of the font, can be "Light", "Ultralight", "Bold", "Demibold", "Regular", "Medium" etc.. (String Value)
+//
+// composite:           Composite (i.e. Text Font and Text Color) for a view which would have any text
+//                      - e.g. a content value "@Composite.<abc>" will be a composite available via Theme object
+//                      - can also be defined via an explicit combination of "font" & "color"
+// composite -> font:   Font (i.e. Text Font Family, Size & Weight) for a composite of a view (String Value)
+//                      - e.g. a content value "@Font.<abc>" will be a font available via Theme object
+//                      - can also be defined via an explicit combination of "weight", "family" & "size"
+// composite -> color:  Text's Color for a composite of a view, Please refer to content example 3 above (String Value)
+//
+//
+// LAYOUT AND SIZING INFORMATION(s):
+// width:               Width of the view (Numeric or "@Dimen.<abc>" Value )
+// height:              Height of the view (Numeric or "@Dimen.<abc>" Value )
+// centerX:             A Bool determining if this view will be centered to the superView along the X axis (Boolean Value)
+// centerY:             A Bool determining if this view will be centered to the superView along the Y axis (Boolean Value)
+// widthByHeight:       is the ratio of the width divided by the height of that view to itself (Numeric or "@Dimen.<abc>" Value)
+// bottom:              Spacing between the view and the sibling view under it or the superView (Numeric or "@Dimen.<abc>" Value)
+// top:                 Spacing between the view and the sibling view on top of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// leading:             Spacing between the view and the sibling view on left of it or the superView (Numeric or "@Dimen.<abc>" Value)
+// trailing:            Spacing between the view and the sibling view on right of it or the superView (Numeric or "@Dimen.<abc>" Value)
+//
+// Following are proprietary to CollectionView, where:
+// rowItemCount:        Number of items in a row (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceY:     Vertical space between two rows (Numeric or "@Dimen.<abc>" Value)
+// interItemSpaceX:     Horizontal space between two items (Numeric or "@Dimen.<abc>" Value)
+//
+//
+// CUSTOM VIEW KEYS/IDENTIFIERS:
+// -> view: The current view
+//
+// -> header: Please refer to classic_light-home.json
+//
+// -> capabilitiesGrid: Please refer to classic_light-home.json
+//
+// -> transactors: The transactors collectionView for Move Money
+// transactors -> icon: The image for icon of each item
+// transactors -> description: The description label of each item
+// transactors -> informationTitle: The title of the collectionView
+// transactors -> background: The background image of icon of each item
+// transactors -> informationDescription: The description of the collectionView
+//
+// -> recentActivity: The transaction drawer for Move Money; Please refer to classic_light-home.json
+//
+//
+
+{
+    "view":{
+        "content":"#00000000"
+    },
+    
+    "header":{
+        "view":{
+            "bottom":-32,
+            "widthByHeight":1.89,
+            "content":"header.json"
+        },
+        "balanceCarousel": {
+            "view":{
+                "top":36,
+                "content":"#FFFFFF00"
+            },
+            "titleLabel":{
+                "composite":{
+                    "font":"@Font.largerNumeral",
+                    "color":"@Color.white"
+                }
+            },
+            "descriptionLabel":{
+                "composite":{
+                    "font":"@Font.mediumText",
+                    "color":"@Color.white"
+                }
+            }
+        }
+    },
+    
+    "capabilitiesGrid":{
+        "view":{
+            "top":16,
+            "leading":20,
+            "trailing":20,
+            "bottom":20,
+            "rowItemCount":3,
+            "interItemSpaceX":20,
+            "interItemSpaceY":20,
+            "content":"#FFFFFF00"
+        },
+        "items":[
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridDeposit.pdf"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Deposit",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "height":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridManage.pdf"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Manage",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "height":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25
+                    }
+                }
+            },
+            {
+                "view":{
+                    "widthByHeight":1,
+                    "content":""
+                },
+                "iconImage":{
+                    "content":"gridTransfer.pdf"
+                },
+                "titleLabel":{
+                    "bottom":8,
+                    "content":"Transfer",
+                    "composite":{
+                        "font":"@Font.smallText",
+                        "color":"#475860"
+                    }
+                },
+                "backgroundImage":{
+                    "content":"gridBackground.pdf",
+                    "shadow":{
+                        "radius":5.0,
+                        "height":5.0,
+                        "color":"@Color.black",
+                        "opacity":0.25
+                    }
+                }
+            }
+        ]
+    },
+    
+    "transactors":{
+        "view":{
+            "bottom":40,
+            "width":94,
+            "height":110,
+            "interItemSpaceX":10
+        },
+        "informationTitle":{
+            "content":"Send or Request Money",
+            "composite":{
+                "font":"@Font.regularText",
+                "color":"@Color.adaptive5"
+            }
+        },
+        "informationDescription":{
+            "content":"To Send or Request Money, tap the new button.",
+            "composite":{
+                "font":"@Font.xSmallText",
+                "color":"@Color.adaptive5"
+            }
+        },
+        "icon": {
+            "content":"addTransactor.pdf",
+            "composite":{
+                "font":"@Font.subTitle",
+                "color":"@Color.white"
+            }
+        },
+        "background": {
+            "width":60,
+            "content":"transactorBackground.pdf"
+        },
+        "description": {
+            "height":24,
+            "composite":{
+                "font":"@Font.smallTextEmphasis",
+                "color":"@Color.adaptive5"
+            }
+        },
+        "avatar": {
+            "width":60
+        }
+    },
+
+    "recentActivity":{
+        "view":{
+            "top":52,
+            "leading":20,
+            "trailing":20,
+            "widthByHeight":5.33,
+            "content":"@Color.white",
+            "shadow":{
+                "radius":5.0,
+                "height":5.0,
+                "color":"@Color.black",
+                "opacity":0.25
+            }
+        },
+        "topView":{
+            "widthByHeight":8,
+            "content":"transactionsTop.pdf"
+        },
+        "bottomView":{
+            "widthByHeight":16,
+            "content":"transactionsBottom.pdf"
+        },
+        "headerTitle":{
+            "leading":16,
+            "content":"Recent Activity",
+            "composite":{
+                "font":"@Font.regularText",
+                "color":"@Color.black"
+            }
+        },
+        "expandButton":{
+            "trailing":16,
+            "content":"transactionsExpand.pdf"
+        },
+        "noTransactionRow":{
+            "view":{
+                "height":75
+            },
+            "informationLabel":{
+                "content":"You have no recent P2P transactions.",
+                "composite": {
+                    "font": "@Font.mediumText",
+                    "color":"@Color.adaptive5"
+                }
+            }
+        },
+        "row":{
+            "view":{
+                "height":64,
+                "leading":20,
+                "trailing":20,
+                "widthByHeight":8
+            },
+            "initialsLabel":{
+                "content":"transactionDrawerBackground.pdf",
+                "composite":{
+                    "font":"@Font.subTitle",
+                    "color":"@Color.adaptive5"
+                }
+            },
+            "typeLabel":{
+                "leading":8,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"#475860"
+                }
+            },
+            "dateLabel":{
+                "leading":8,
+                "composite":{
+                    "font":"@Font.xSmallText",
+                    "color":"#475860"
+                }
+            },
+            "statusLabel":{
+                "leading":8,
+                "composite":{
+                    "font":"@Font.xSmallText",
+                    "color":"#C5CED4"
+                }
+            },
+            "transactorBackgroundImage":{
+                "height":48,
+                "leading":20,
+                "content":"@Color.adaptive2"
+            },
+            "creditAmountLabel":{
+                "trailing":20,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"#C5CED4"
+                }
+            },
+            "pendingAmountLabel":{
+                "trailing":20,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"#C5CED4"
+                }
+            },
+            "confirmedAmountLabel":{
+                "trailing":20,
+                "composite":{
+                    "font":"@Font.regularText",
+                    "color":"@Color.success"
+                }
+            }
+        }
+    }
+}

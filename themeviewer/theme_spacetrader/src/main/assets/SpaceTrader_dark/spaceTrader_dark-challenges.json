@@ -1,0 +1,127 @@
+{
+    "view":{
+        "content":"#00000000"
+    },
+    "header":{
+        "view":{
+            "bottom":40,
+            "widthByHeight":1.89,
+            "content":"challengesHeader.pdf"
+        }
+    },
+    "sectionHeader": {
+        "title":{
+            "font":"@Font.regularTextEmphasis",
+            "color":"@Color.adaptive5"
+        },
+        "description": {
+            "font":"@Font.smallText",
+            "color":"@Color.adaptive5"
+        }
+    },
+    "accountTile":{
+        "view":{
+            "leading":20,
+            "trailing":20,
+            "content":"challengesAccountTile.pdf"
+        },
+        "nameLabel":{
+            "composite":{
+                "font":"@Font.subTitle",
+                "color":"#8024CE"
+            }
+        },
+        "levelLabel":{
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"#8024CE"
+            }
+        },
+        "pointsLabel":{
+            "composite":{
+                "font":"@Font.mediumText",
+                "color":"#8024CE"
+            }
+        },
+        "profileImage":{
+            "content":"userAvatar.pdf"
+        },
+        "starImage":{
+            "content":"challengesStar.pdf"
+        }
+    },
+    "progressBar":{
+        "backgroundColor": "#D240C7",
+        "progressColor": "#4FC143",
+        "borderColor": "#8024CE",
+        "leftText":{
+            "font":"@Font.smallText",
+            "color":"#FFFFFF"
+        },
+        "rightText":{
+            "font":"@Font.smallText",
+            "color":"#FFFFFF"
+        },
+        "centerText": {
+            "font":"@Font.smallText",
+            "color":"#FFFFFF"
+        },
+        "trailingText": {
+            "font":"@Font.smallText",
+            "color":"#FFFFFF"
+        }
+    },
+    "cardTile":{
+        "view":{
+            "content":"#224C84"
+        },
+        "subTitle":{
+            "font":"@Font.mediumText",
+            "color":"#E81388"
+        },
+        "title":{
+            "font":"@Font.regularTextEmphasis",
+            "color":"@Color.adaptive5"
+        },
+        "description": {
+            "font":"@Font.smallText",
+            "color":"@Color.adaptive5"
+        },
+        "pointsPill": {
+            "label" : {
+                "font":"@Font.smallText",
+                "color":"@Color.white"
+            },
+            "image": "challengesStar.pdf"
+        },
+        "progressBar":{
+            "backgroundColor": "#D240C7",
+            "progressColor": "#4FC143",
+            "borderColor": "#8024CE",
+            "leftText":{
+                "font":"@Font.smallText",
+                "color":"#FFFFFF"
+            },
+            "rightText":{
+                "font":"@Font.smallText",
+                "color":"#FFFFFF"
+            },
+            "centerText": {
+                "font":"@Font.smallText",
+                "color":"#FFFFFF"
+            },
+            "trailingText": {
+                "font":"@Font.smallText",
+                "color":"#FFFFFF"
+            }
+        }
+    },
+    "footer":{
+        "top":24,
+        "bottom":20,
+        "leading":16,
+        "trailing":16,
+        "widthByHeight":3.63,
+        "content":"accountFooter.png"
+    }
+}

@@ -1,0 +1,16 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+package="com.softllc.libs.theme_classic"  >
+
+<application>
+    <provider
+        android:name=".ClassicThemeProvider"
+        android:authorities="${applicationId}.theme.classic.themeprovider"
+        android:directBootAware="true"
+        android:exported="false"
+        android:initOrder="300"
+        tools:ignore="UnusedAttribute"/>
+</application>
+</manifest>
+

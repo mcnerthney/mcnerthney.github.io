@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="theme"
+            type="com.greendotcorp.core.theme.lib.Theme" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/challenges_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.themeviewer.ThemeViewerFragment">
+        <TextView
+            android:id="@+id/challenges_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:t_font='@{theme.challenges.accountTile.nameComposite.font}'
+            app:t_textColor='@{theme.globalStyle.color.primary}'
+            app:layout_constraintBottom_toTopOf="@id/challenges_base"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/challenges_base"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/challenges_heading">
+            <!-- Start Background -->
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/challenges_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Start Dashboard Header -->
+                    <RelativeLayout
+                        android:id="@+id/dashboard_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <android.widget.ImageView
+                            android:id="@+id/dashboard_header_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"
+                            app:t_imageDrawable="@{theme.challenges.header.view.content}" />
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/dashboard_header_lottie"
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:scaleType="centerCrop"
+                            android:visibility="visible"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:t_animation='@{theme.challenges.header.view.content}' />
+
+
+                    </RelativeLayout>
+
+
+                    <!-- End Dashboard Header -->
+
+                    <!-- Start Account Banner -->
+                    <ImageView
+                        android:id="@+id/main_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="17dp"
+                        android:layout_marginTop="94dp"
+                        t_marginTop='@{theme.challenges.header.view.bottom}'
+                        android:layout_marginRight="17dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <!-- End Account Banner -->
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_challenges_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@android:color/transparent"
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        android:visibility="visible"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/main_header" />
+
+                    <!-- Start Spacer -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recycler_challenges_card" />
+                    <!-- End Spacer -->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

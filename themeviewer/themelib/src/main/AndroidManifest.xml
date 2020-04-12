@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.softllc.libs.core" >
+
+    <application>
+
+        <provider
+            android:name="com.greendotcorp.themelib.provider.ThemeCoreProvider"
+            android:authorities="${applicationId}.theme.core.ThemeProvider"
+            android:directBootAware="true"
+            android:exported="false"
+            android:initOrder="900"
+            tools:ignore="UnusedAttribute"/>
+
+        <provider
+            android:name="com.greendotcorp.themelib.provider.AppContextProvider"
+            android:authorities="${applicationId}.theme.applicationprovider"
+            android:directBootAware="true"
+            android:exported="false"
+            android:initOrder="900"
+            tools:ignore="UnusedAttribute"/>
+
+    </application>
+</manifest>
+
