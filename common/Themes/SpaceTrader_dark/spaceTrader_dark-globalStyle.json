@@ -92,8 +92,8 @@
     },
     
     "composites": {
-        "tileTitle":                {"font":"subTitle", "color":"adaptive5"},
-        "pageTitle":                {"font":"mainTitle", "color":"white"},
-        "topNavigationButtonTitle": {"font":"smallTitle", "color":"white"}
+        "tileTitle":                {"font":"@Font.subTitle", "color":"@Color.adaptive5"},
+        "pageTitle":                {"font":"@Font.mainTitle", "color":"@Color.white"},
+        "topNavigationButtonTitle": {"font":"@Font.smallTitle", "color":"@Color.white"}
     }
 }
