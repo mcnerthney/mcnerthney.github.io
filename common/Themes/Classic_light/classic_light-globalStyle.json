@@ -12,7 +12,7 @@
 {
     "colors": {
         //app branding
-        "primary":              "#ffff00",
+        "primary":              "#005CFF",
         "primaryDark":          "#3F0A9D",
         "secondary":            "#005CFF",
         "tertiary":             "#E81388",
