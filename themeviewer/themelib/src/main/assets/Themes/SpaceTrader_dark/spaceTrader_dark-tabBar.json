@@ -135,5 +135,5 @@
     "yScaleRatio":1,
     "widthByHeightRatio":5.45,
     "coverBackground": "@Color.black",
-    "background":"@Color.black"
+    "background":  "@Color.viewBackground" //"@Color.black"
 }
