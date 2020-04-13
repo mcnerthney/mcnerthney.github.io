@@ -1,6 +1,5 @@
 package com.greendotcorp.core.theme.app
 
-import android.animation.Animator
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -17,26 +16,32 @@ import com.greendotcorp.core.theme.lib.ThemeManagerEx
 themeManagerEx bindings
 
  */
-
-@BindingAdapter("t_background")
-fun t_background(view: View, style: Any?) {
+@BindingAdapter(value = ["t_background", "t_gone_if_null"], requireAll = false)
+fun ThemeBackground(view: View, style: Any?, goneIfNull: Boolean?) {
     val theme = ThemeManagerEx.current.value ?: return
-
+    var hideView = goneIfNull ?: false
     val themeDrawable = theme.getDrawable(style)
     themeDrawable.let {
         view.background = it?.drawable
+        hideView = false
     }
 
     val color = theme.getColor(style)
     color?.let {
+        hideView = false
+
         when (view) {
             is CardView -> {
                 view.setCardBackgroundColor(it)
             }
             else -> {
                 view.setBackgroundColor(it)
+
             }
         }
+    }
+    goneIfNull?.let {
+        view.visibility = if (hideView) View.GONE else View.VISIBLE
     }
 }
 
@@ -64,31 +69,24 @@ fun t_textColorHint(view: View, style: Any? ) {
     }
 }
 
-@BindingAdapter("t_animation")
-fun t_animation(lottie: LottieAnimationView, style: Any?) {
+@BindingAdapter(value = ["t_animation", "t_gone_if_null"], requireAll = false)
+fun t_animation(view: LottieAnimationView, style: Any?, goneIfNull: Boolean?) {
     val theme = ThemeManagerEx.current.value ?: return
 
     val themeDrawable = theme.getDrawable(style)
+    var hideView = goneIfNull ?: false
 
     if ( themeDrawable != null && !themeDrawable.animation.isNullOrBlank() ) {
         val asset = themeDrawable.animation
         asset.let {
-            lottie.setAnimation(asset)
-            lottie.visibility = View.VISIBLE
-            val animatorListener = object : Animator.AnimatorListener {
-                override fun onAnimationStart(p0: Animator?) {
-                   lottie.visibility = View.VISIBLE
-                }
-                override fun onAnimationCancel(p0: Animator?) { }
-                override fun onAnimationRepeat(p0: Animator?) { }
-                override fun onAnimationEnd(animation: Animator?) {
-                }
-            }
-            lottie.addAnimatorListener(animatorListener)
-            lottie.playAnimation()
+            view.setAnimation(asset)
+            view.playAnimation()
+            hideView = false
         }
-    } else {
-        lottie.visibility = View.GONE
+    }
+
+    goneIfNull?.let {
+        view.visibility = if (hideView) View.GONE else View.VISIBLE
     }
 }
 
@@ -99,7 +97,7 @@ fun t_typeface(view: View, style: Any?) {
 
     font?.let {
         if (view is TextView) {
-            view.setTypeface(it.typeface)
+            view.typeface = it.typeface
             view.textSize = it.size
         }
     }
@@ -127,22 +125,23 @@ fun t_textcolor(view: View, style: Any?) {
 }
 
 
-@BindingAdapter("t_imageDrawable")
-fun t_imageDrawable(view: ImageView, style: Any?) {
+@BindingAdapter(value = ["t_imageDrawable", "t_gone_if_null"], requireAll = false)
+fun themeImageDrawable(view: ImageView, style: Any?, goneIfNull: Boolean?) {
+    var hideView = goneIfNull ?: false
+
     val theme = ThemeManagerEx.current.value ?: return
     val themeDrawable = theme.getDrawable(style)
     when (view) {
         is ImageView -> {
             if ( themeDrawable != null ) {
-                view.clipToOutline = true
-                view.visibility = View.VISIBLE
                 view.setImageDrawable(themeDrawable.drawable)
-            }
-            else {
-                view.visibility = View.GONE
             }
         }
     }
+    goneIfNull?.let {
+        view.visibility = if (hideView) View.GONE else View.VISIBLE
+    }
+
 
 }
 

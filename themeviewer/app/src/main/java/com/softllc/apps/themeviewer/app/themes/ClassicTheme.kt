@@ -15,8 +15,11 @@ class ClassicTheme (context: Context): Theme, ThemeImpl(context) {
     override val id: String? = "classic_light"
 
     override val resourceLocations = mapOf(
-        //    Pair(ResourceLocation.SharedThemeLocation, "${localFileScheme}Themes/Classic_light/classic_light-"),
-         Pair(ResourceLocation.SharedThemeLocation,"https://mcnerthney.github.io/common/Themes/Classic_light/classic_light-"),
+        Pair(
+            ResourceLocation.SharedThemeLocation,
+            "${localFileScheme}Themes/Classic_light/classic_light-"
+        ),
+        //  Pair(ResourceLocation.SharedThemeLocation,"https://mcnerthney.github.io/common/Themes/Classic_light/classic_light-"),
             Pair(ResourceLocation.SharedDrawableLocation, "${id}__"),
             Pair(ResourceLocation.AndroidDrawableLocation, "${id}__")
     )

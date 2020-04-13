@@ -5,14 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.softllc.apps.themeviewer.databinding.ThemeViewPagerFragmentBinding
-import android.util.Log
 import androidx.lifecycle.Observer
-import com.greendotcorp.core.theme.app.themes.ClassicTheme
+import androidx.lifecycle.ViewModelProvider
 import com.greendotcorp.core.theme.lib.ThemeManagerEx
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.softllc.apps.themeviewer.databinding.ThemeViewPagerFragmentBinding
 
 class ThemeViewPagerFragment : Fragment() {
 
@@ -24,22 +20,16 @@ class ThemeViewPagerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
-        GlobalScope.launch {
-           // ThemeManagerEx.setThemes(ClassicTheme(requireContext()))
-        }
+        binding = ThemeViewPagerFragmentBinding.inflate(inflater, container, false)
 
         adapter = ThemeViewPagerAdapter(parentFragmentManager)
-
-        binding = ThemeViewPagerFragmentBinding.inflate(inflater, container, false)
         binding.themeViewPagerFragmentViewPager.adapter = adapter
+
         ThemeManagerEx.current.observe(viewLifecycleOwner, Observer { theme ->
             binding.theme = theme
         })
 
         return binding.root
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
