@@ -111,6 +111,6 @@
     "xScaleRatio":1.29,
     "yScaleRatio":1.06,
     "widthByHeightRatio":5.45,
-    "coverBackground":"#00000000",
+    "coverBackground": "@Color.viewBackground",
     "background":"@Color.viewBackground"
 }

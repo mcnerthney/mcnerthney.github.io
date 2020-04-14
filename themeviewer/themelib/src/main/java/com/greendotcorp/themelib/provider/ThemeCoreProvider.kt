@@ -16,7 +16,6 @@ class ThemeCoreProvider : EmptyProvider() {
         ApplicationProvider.listen { application ->
             ioScope.launch {
 
-                //ThemeManagerExInit().loadThemes(application)
 
             }
         }

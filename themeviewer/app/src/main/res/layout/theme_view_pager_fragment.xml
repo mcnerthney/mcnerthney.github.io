@@ -16,23 +16,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ThemeViewPagerFragment">
+
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            t_background="@{theme.tabBar.coverBackground"/>
+            android:visibility="visible"
+            app:t_background="@{theme.tabBar.coverBackground}" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:t_background="@{theme.tabBar.background}"
+            app:t_gone_if_null="@{true}" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/viewpager_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
             android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            android:visibility="gone"
+            app:t_gone_if_null="@{true}"
             app:t_animation='@{theme.tabBar.background}' />
 
         <androidx.viewpager.widget.ViewPager

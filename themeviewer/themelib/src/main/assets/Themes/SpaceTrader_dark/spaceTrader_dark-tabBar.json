@@ -134,7 +134,7 @@
     "xScaleRatio":1,
     "yScaleRatio":1,
     "widthByHeightRatio":5.45,
-    
-    "coverBackground":"#00000000",
-    "background":"background.json"
+    "coverBackground": "@Color.black",
+    //"background":  "background.json"           
+    "background" : "@Color.black"
 }
