@@ -12,7 +12,7 @@ import java.lang.reflect.Field
 
 
 class ThemeGlobalStyleAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private enum class AdapterViewType {
+    enum class AdapterViewType {
         GLOBAL_FONT,
         GLOBAL_COLOR,
         GLOBAL_DIMEN,
