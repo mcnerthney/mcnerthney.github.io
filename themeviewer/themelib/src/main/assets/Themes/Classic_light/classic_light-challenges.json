@@ -1,8 +1,7 @@
 {
     "header": {
         "view": {
-            "bottom":22,
-            "widthByHeight":1.85,
+            "widthByHeight":1.89,
             "content":"header.json"
         }
     },
@@ -31,19 +30,15 @@
             "progressColor": "@Color.success",
             "progressBorderColor": "@Color.primaryDark",
             "borderColor": "@Color.primaryDark",
-            "leftComposite": {
+            "progressComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "rightComposite": {
+            "targetComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "centerComposite": {
-                "font":"@Font.smallText",
-                "color":"@Color.white"
-            },
-            "trailingComposite": {
+            "textComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             }
@@ -69,7 +64,9 @@
         }
     },
     "cardTile": {
-        "color":"@Color.white",
+        "view": {
+            "content": "@Color.contentBackground"
+        },
         "subTitleComposite": {
             "font":"@Font.mediumText",
             "color":"@Color.tertiary"
@@ -95,19 +92,15 @@
             "progressColor": "@Color.success",
             "progressBorderColor": "@Color.primaryDark",
             "borderColor": "@Color.primaryDark",
-            "leftComposite": {
+            "progressComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "rightComposite": {
+            "targetComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "centerComposite": {
-                "font":"@Font.smallText",
-                "color":"@Color.white"
-            },
-            "trailingComposite": {
+            "textComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             }

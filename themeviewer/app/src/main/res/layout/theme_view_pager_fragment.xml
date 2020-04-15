@@ -28,8 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"
-            app:t_background="@{theme.tabBar.background}"
-            app:t_gone_if_null="@{true}" />
+            app:t_background="@{theme.tabBar.background}"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/viewpager_background"
@@ -40,8 +39,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_loop="true"
-            app:t_gone_if_null="@{true}"
-            app:t_animation='@{theme.tabBar.background}' />
+            app:t_imageDrawable='@{theme.tabBar.background}' />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/theme_view_pager_fragment_view_pager"

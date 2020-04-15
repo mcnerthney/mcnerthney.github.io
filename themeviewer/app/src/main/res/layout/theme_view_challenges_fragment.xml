@@ -61,20 +61,18 @@
                             android:id="@+id/dashboard_header_image"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            app:t_gone_if_null="@{true}"
+                            android:scaleType="fitXY"
                             app:t_imageDrawable="@{theme.challenges.header.view.content}" />
 
                         <com.airbnb.lottie.LottieAnimationView
                             android:id="@+id/dashboard_header_lottie"
                             android:layout_width="match_parent"
                             android:layout_height="190dp"
-                            android:scaleType="centerCrop"
+                            android:scaleType="fitXY"
                             android:visibility="visible"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"
-                            app:t_gone_if_null="@{true}"
-                            app:t_animation='@{theme.challenges.header.view.content}' />
+                            app:t_imageDrawable='@{theme.challenges.header.view.content}' />
 
 
                     </RelativeLayout>

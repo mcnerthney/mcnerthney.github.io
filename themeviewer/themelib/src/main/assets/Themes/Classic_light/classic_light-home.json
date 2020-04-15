@@ -417,11 +417,11 @@
                     "content":""
                 },
                 "iconImage":{
-                    "content":"gridChatBot.json"
+                    "content":"gridSupport.pdf"
                 },
                 "titleLabel":{
                     "bottom":8,
-                    "content":"ChatBot",
+                    "content":"Support",
                     "composite":{
                         "font":"@Font.smallText",
                         "color":"#475860"

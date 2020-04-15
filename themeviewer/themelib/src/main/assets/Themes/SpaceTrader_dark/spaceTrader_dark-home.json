@@ -304,10 +304,10 @@
                     "content":""
                 },
                 "iconImage":{
-                    "content":"gridChatBot.pdf"
+                    "content":"gridSupport.pdf"
                 },
                 "titleLabel":{
-                    "content":"CHATBOT",
+                    "content":"SUPPORT",
                     "composite":{
                         "font":"@Font.smallText",
                         "color":"@Color.white"

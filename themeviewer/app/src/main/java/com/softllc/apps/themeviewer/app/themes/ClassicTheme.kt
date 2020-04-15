@@ -17,7 +17,7 @@ class ClassicTheme (context: Context): Theme, ThemeImpl(context) {
     override val resourceLocations = mapOf(
         Pair(
             ResourceLocation.SharedThemeLocation,
-            "${localFileScheme}Themes/Classic_light/classic_light-"
+            "${sharedFileScheme}Themes/Classic_light/classic_light-"
         ),
         //  Pair(ResourceLocation.SharedThemeLocation,"https://mcnerthney.github.io/common/Themes/Classic_light/classic_light-"),
             Pair(ResourceLocation.SharedDrawableLocation, "${id}__"),

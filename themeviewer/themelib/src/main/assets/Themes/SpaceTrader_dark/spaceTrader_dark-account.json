@@ -97,14 +97,14 @@
                     "trailing":8,
                     "content":"SECURITY SETTINGS",
                     "composite":{
-                        "font":"@Fonts.regularTextEmphasis",
+                        "font":"@Font.regularTextEmphasis",
                         "color":"@Color.white"
                     }
                 },
                 "descriptionLabel":{
                     "content":"Auto-Logout, trusted devices and more",
                     "composite": {
-                        "font":"@Fonts.smallText",
+                        "font":"@Font.smallText",
                         "color":"@Color.white"
                     }
                 },
@@ -133,14 +133,14 @@
                     "trailing":8,
                     "content":"MANAGE CARD",
                     "composite":{
-                        "font":"@Fonts.regularTextEmphasis",
+                        "font":"@Font.regularTextEmphasis",
                         "color":"@Color.white"
                     }
                 },
                 "descriptionLabel":{
                     "content":"Set your PIN, Report problems",
                     "composite": {
-                        "font":"@Fonts.smallText",
+                        "font":"@Font.smallText",
                         "color":"@Color.white"
                     }
                 },
@@ -169,14 +169,14 @@
                     "trailing":8,
                     "content":"NOTIFICATIONS",
                     "composite":{
-                        "font":"@Fonts.regularTextEmphasis",
+                        "font":"@Font.regularTextEmphasis",
                         "color":"@Color.white"
                     }
                 },
                 "descriptionLabel":{
                     "content":"Customize Alerts",
                     "composite": {
-                        "font":"@Fonts.smallText",
+                        "font":"@Font.smallText",
                         "color":"@Color.white"
                     }
                 },
@@ -199,20 +199,20 @@
                     "content":"#FFFFFF00"
                 },
                 "iconImage":{
-                    "content":"accountSupport.pdf"
+                    "content":"accountHelpLegal.pdf"
                 },
                 "titleLabel":{
                     "trailing":8,
-                    "content":"SUPPORT",
+                    "content":"HELP & LEGAL",
                     "composite":{
-                        "font":"@Fonts.regularTextEmphasis",
+                        "font":"@Font.regularTextEmphasis",
                         "color":"@Color.white"
                     }
                 },
                 "descriptionLabel":{
-                    "content":"Legal and Privacy Information",
+                    "content":"FAQ & legal documentation",
                     "composite": {
-                        "font":"@Fonts.smallText",
+                        "font":"@Font.smallText",
                         "color":"@Color.white"
                     }
                 },
@@ -241,14 +241,50 @@
                     "trailing":8,
                     "content":"THEMES",
                     "composite":{
-                        "font":"@Fonts.regularTextEmphasis",
+                        "font":"@Font.regularTextEmphasis",
                         "color":"@Color.white"
                     }
                 },
                 "descriptionLabel":{
                     "content":"Change your app style",
                     "composite": {
-                        "font":"@Fonts.smallText",
+                        "font":"@Font.smallText",
+                        "color":"@Color.white"
+                    }
+                },
+                "disclosureImage":{
+                    "trailing":64,
+                    "content":"accountDisclosure.pdf"
+                }
+            },
+            {
+                "view":{
+                    "top":28,
+                    "height":72,
+                    "trailing":16,
+                    "content":"accountListBackround.pdf"
+                },
+                "iconBackgroundImage":{
+                    "width":64,
+                    "leading":8,
+                    "trailing":8,
+                    "content":"#FFFFFF00"
+                },
+                "iconImage":{
+                    "content":"accountSupport.pdf"
+                },
+                "titleLabel":{
+                    "trailing":8,
+                    "content":"SUPPORT",
+                    "composite":{
+                        "font":"@Font.regularTextEmphasis",
+                        "color":"@Color.white"
+                    }
+                },
+                "descriptionLabel":{
+                    "content":"Support and live agents",
+                    "composite": {
+                        "font":"@Font.smallText",
                         "color":"@Color.white"
                     }
                 },
@@ -258,14 +294,5 @@
                 }
             }
         ]
-    },
-    
-    "footer":{
-        "top":24,
-        "bottom":32,
-        "leading":16,
-        "trailing":16,
-        "widthByHeight":3.63,
-        "content":"accountFooter.png"
     }
 }

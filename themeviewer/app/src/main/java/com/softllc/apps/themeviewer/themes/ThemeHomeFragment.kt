@@ -36,7 +36,7 @@ class ThemeHomeFragment() : Fragment() {
         })
 
         binding.root.setOnClickListener {
-            nextTheme(requireContext())
+           // nextTheme(requireContext())
         }
         return binding.root
     }

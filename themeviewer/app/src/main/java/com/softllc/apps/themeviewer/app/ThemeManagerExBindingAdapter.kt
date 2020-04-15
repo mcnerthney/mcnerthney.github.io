@@ -1,5 +1,6 @@
-package com.greendotcorp.core.theme.app
+package com.softllc.apps.themeviewer.app
 
+import android.graphics.PorterDuff
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -16,95 +17,121 @@ import com.greendotcorp.core.theme.lib.ThemeManagerEx
 themeManagerEx bindings
 
  */
-@BindingAdapter(value = ["t_background", "t_gone_if_null"], requireAll = false)
-fun ThemeBackground(view: View, style: Any?, goneIfNull: Boolean?) {
+
+
+@BindingAdapter("t_background")
+fun themeBackgroundBinding(view: View, style: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
-    var hideView = goneIfNull ?: false
+
     val themeDrawable = theme.getDrawable(style)
     themeDrawable.let {
         view.background = it?.drawable
-        hideView = false
     }
 
     val color = theme.getColor(style)
     color?.let {
-        hideView = false
-
         when (view) {
             is CardView -> {
                 view.setCardBackgroundColor(it)
             }
             else -> {
                 view.setBackgroundColor(it)
-
             }
         }
     }
-    goneIfNull?.let {
-        view.visibility = if (hideView) View.GONE else View.VISIBLE
+}
+
+@BindingAdapter("t_colorFilter")
+fun themeColorFilerBinding(view: View?, style: Any?) {
+    val theme = ThemeManagerEx.current.value ?: return
+    val color = theme.getColor(style)
+    color?.let {
+        when (view) {
+            is ImageView -> {
+                view.setColorFilter(it, PorterDuff.Mode.MULTIPLY)
+            }
+        }
     }
 }
 
 @BindingAdapter("t_textColorHint")
-fun t_textColorHint(view: View, style: Any? ) {
+fun themeTextColorHintBinding(view: View, style: Any?) {
 
     val theme = ThemeManagerEx.current.value ?: return
     val color = theme.getColor(style)
 
     color?.let {
-        when ( color ) {
+        when (color) {
             is Int -> { // it's a Color
                 when (view) {
                     is TextView -> view.setHintTextColor(color)
                     is AppCompatEditText -> view.setHintTextColor(color)
                     is TextInputEditText -> view.setHintTextColor(color)
-                    //is AmountInputField -> view.setHintTextColor(color)
+                   // is AmountInputField -> view.setHintTextColor(color)
                     is EditText -> view.setHintTextColor(color)
-                    else -> {}
+                    else -> {
+                    }
                 }
 
             }
-            else -> {}
+            else -> {
+            }
         }
     }
 }
 
-@BindingAdapter(value = ["t_animation", "t_gone_if_null"], requireAll = false)
-fun t_animation(view: LottieAnimationView, style: Any?, goneIfNull: Boolean?) {
+@BindingAdapter("t_imageDrawable")
+fun themeImageDrawableBinding(view: View, style: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
-
+    var hideView = true
     val themeDrawable = theme.getDrawable(style)
-    var hideView = goneIfNull ?: false
 
-    if ( themeDrawable != null && !themeDrawable.animation.isNullOrBlank() ) {
-        val asset = themeDrawable.animation
-        asset.let {
-            view.setAnimation(asset)
-            view.playAnimation()
-            hideView = false
-        }
-    }
+    themeDrawable?.let {
+        when (view) {
+            is LottieAnimationView -> {
 
-    goneIfNull?.let {
-        view.visibility = if (hideView) View.GONE else View.VISIBLE
+                // set the view animation to a file name
+                if (!themeDrawable.animation.isNullOrBlank()) {
+                    val asset = themeDrawable.animation
+                    asset.let {
+                        view.disableExtraScaleModeInFitXY()
+                        view.setAnimation(asset)
+                        view.playAnimation()
+                        hideView = false
+
+                    }
+                }
+            }
+
+            is ImageView -> {
+
+                // set the view image to a vector drawable
+                if (themeDrawable.drawable != null) {
+                    view.clipToOutline = true
+                    view.setImageDrawable(themeDrawable.drawable)
+                    hideView = false
+                }
+            }
+         }
     }
+    view.visibility = if (hideView) View.GONE else View.VISIBLE
 }
 
 @BindingAdapter("t_font")
-fun t_typeface(view: View, style: Any?) {
+fun themeFontBinding(view: View, style: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val font = theme.getFont(style)
 
     font?.let {
         if (view is TextView) {
-            view.typeface = it.typeface
+            view.setTypeface(it.typeface)
             view.textSize = it.size
         }
     }
 }
 
 @BindingAdapter("t_textColor")
-fun t_textcolor(view: View, style: Any?) {
+fun themeTextColorBinding(view: View, style: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val color = theme.getColor(style)
 
@@ -112,85 +139,68 @@ fun t_textcolor(view: View, style: Any?) {
         when (view) {
             is TextView -> view.setTextColor(color)
             is AppCompatEditText -> view.setTextColor(color)
-           // is GEditTextField -> view.setTextColor(color)
+       //     is GEditTextField -> view.setTextColor(color)
             is TextInputEditText -> view.setTextColor(color)
-           // is AmountInputField -> view.setTextColor(color)
+      //      is AmountInputField -> view.setTextColor(color)
             is EditText -> view.setTextColor(color)
-           // is GEditDateField -> view.setTextColor(color)
-          //  is GEditPercentField -> view.setTextColor(color)
-          //  is GEditAmountField -> view.setTextColor(color)
+      //      is GEditDateField -> view.setTextColor(color)
+      //      is GEditPercentField -> view.setTextColor(color)
+      //      is GEditAmountField -> view.setTextColor(color)
         }
     }
-
-}
-
-
-@BindingAdapter(value = ["t_imageDrawable", "t_gone_if_null"], requireAll = false)
-fun themeImageDrawable(view: ImageView, style: Any?, goneIfNull: Boolean?) {
-    var hideView = goneIfNull ?: false
-
-    val theme = ThemeManagerEx.current.value ?: return
-    val themeDrawable = theme.getDrawable(style)
-    when (view) {
-        is ImageView -> {
-            if ( themeDrawable != null ) {
-                view.setImageDrawable(themeDrawable.drawable)
-            }
-        }
-    }
-    goneIfNull?.let {
-        view.visibility = if (hideView) View.GONE else View.VISIBLE
-    }
-
 
 }
 
 @BindingAdapter("t_marginTop")
-fun t_marginTop(v: View, topMargin: Any?) {
+fun themeMarginTopBinding(v: View, topMargin: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(topMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.topMargin = it.toInt()
         v.layoutParams = layoutParams
+        v.requestLayout()
     }
 }
 
 @BindingAdapter("t_marginBottom")
-fun t_marginBottom(v: View, bottomMargin: Any?) {
+fun themeMarginBottomBinding(v: View, bottomMargin: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(bottomMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.bottomMargin = it.toInt()
         v.layoutParams = layoutParams
+        v.requestLayout()
     }
 }
 
 @BindingAdapter("t_marginLeft")
-fun t_marginLeft(v: View, leftMargin: Any?) {
+fun themeMarginLeftBinding(v: View, leftMargin: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(leftMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.leftMargin = it.toInt()
         v.layoutParams = layoutParams
+        v.requestLayout()
     }
 }
 
 @BindingAdapter("t_marginRight")
-fun t_marginRight(v: View, rightMargin: Any?) {
+fun themeMarginRightBinding(v: View, rightMargin: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(rightMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.rightMargin = it.toInt()
         v.layoutParams = layoutParams
+        v.requestLayout()
     }
 }
 
 @BindingAdapter("t_layout_width")
-fun setLayoutWidth(v: View, width: Any?) {
+fun themeLayoutWidthBinding(v: View, width: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(width)
     dimen?.let {
@@ -200,7 +210,7 @@ fun setLayoutWidth(v: View, width: Any?) {
 }
 
 @BindingAdapter("t_layout_height")
-fun setLayoutHeight(v: View, height: Any?) {
+fun themeLayoutHeightBinding(v: View, height: Any?) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(height)
     dimen?.let {
@@ -210,7 +220,7 @@ fun setLayoutHeight(v: View, height: Any?) {
 }
 
 @BindingAdapter("t_layout_marginHorizontal", "view_fullscreen")
-fun setMarginBothComputedFullScreen(v: View, leftandRightMargin: Any?, viewFullscreen: Int) {
+fun themeLayoutMarginHorizontalBinding(v: View, leftandRightMargin: Any?, viewFullscreen: Int) {
     val theme = ThemeManagerEx.current.value ?: return
     val dimen = theme.getPixelCount(leftandRightMargin)
     dimen?.let {
@@ -246,3 +256,4 @@ fun setMarginBothComputedFullScreen(v: View, leftandRightMargin: Any?, viewFulls
         v.requestLayout()
     }
 }
+

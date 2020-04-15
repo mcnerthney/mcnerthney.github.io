@@ -1,6 +1,7 @@
 {
     "header": {
         "view": {
+            "widthByHeight":1.89,
             "content":"challengesHeader.pdf"
         }
     },
@@ -29,19 +30,15 @@
             "progressColor": "@Color.success",
             "progressBorderColor": "@Color.primaryDark",
             "borderColor": "@Color.primaryDark",
-            "leftComposite": {
+            "progressComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "rightComposite": {
+            "targetComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "centerComposite": {
-                "font":"@Font.smallText",
-                "color":"@Color.white"
-            },
-            "trailingComposite": {
+            "textComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             }
@@ -67,7 +64,9 @@
         }
     },
     "cardTile": {
-        "color":"#224C84",
+        "view": {
+            "content": "@Color.contentBackground"
+        },
         "subTitleComposite": {
             "font":"@Font.mediumText",
             "color":"@Color.tertiary"
@@ -93,19 +92,15 @@
             "progressColor": "@Color.success",
             "progressBorderColor": "@Color.primaryDark",
             "borderColor": "@Color.primaryDark",
-            "leftComposite": {
+            "progressComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "rightComposite": {
+            "targetComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             },
-            "centerComposite": {
-                "font":"@Font.smallText",
-                "color":"@Color.white"
-            },
-            "trailingComposite": {
+            "textComposite": {
                 "font":"@Font.smallText",
                 "color":"@Color.white"
             }

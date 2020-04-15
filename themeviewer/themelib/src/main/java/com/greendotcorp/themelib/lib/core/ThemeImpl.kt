@@ -35,7 +35,7 @@ abstract class ThemeImpl(val context: Context) {
 
     private val LOG_TAG = "ThemeImpl"
     val localFileScheme = "file:///android_asset/"
-
+    val sharedFileScheme = "https://mcnerthney.github.io/themeviewer/themelib/src/main/assets/"
     protected fun <T : Any> Theme.loadTheme(
         themeFileName: ThemeFileName,
         responseClass: Class<T>
