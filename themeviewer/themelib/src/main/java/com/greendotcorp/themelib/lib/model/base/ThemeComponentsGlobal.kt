@@ -70,6 +70,7 @@ data class Dimens (
         val tileAspectRatio : Double? = null,
         val tileCornerRadius : Double? = null,
         val shadeViewAlpha : Double? = null,
+        val listItemTallHeight : Double? = null,
         val shortTransitionAnimationDuration : Double? = null,
         val mediumTransitionAnimationDuration : Double? = null,
         val longTransitionAnimationDuration : Double? = null

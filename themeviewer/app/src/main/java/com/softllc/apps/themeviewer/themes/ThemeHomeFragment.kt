@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.greendotcorp.core.theme.app.nextTheme
-import com.greendotcorp.core.theme.lib.ThemeManagerEx
+import com.greendotcorp.core.theme.lib.ThemeProvider
 import com.softllc.apps.themeviewer.databinding.ThemeViewHomeFragmentBinding
 import com.softllc.apps.themeviewer.viewpager.ThemeScreenType
 import com.softllc.apps.themeviewer.viewpager.ThemeViewModel
@@ -25,7 +24,7 @@ class ThemeHomeFragment() : Fragment() {
 
         binding = ThemeViewHomeFragmentBinding.inflate(inflater, container, false)
 
-        ThemeManagerEx.current.observe(viewLifecycleOwner, Observer { theme ->
+        ThemeProvider.current.observe(viewLifecycleOwner, Observer { theme ->
             if (theme != null) {
 
                 binding.homeHeading.text = "${ThemeScreenType.Home.name}"

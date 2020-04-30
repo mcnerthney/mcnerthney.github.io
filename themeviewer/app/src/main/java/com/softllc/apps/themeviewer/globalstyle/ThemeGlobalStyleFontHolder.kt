@@ -23,10 +23,6 @@ class ThemeGlobalStyleFontHolder(val binding: ItemGlobalFontBinding) : RecyclerV
         binding.fontName.typeface = font?.typeface ?: Typeface.DEFAULT
         binding.fontName.textSize = font?.size ?: 12f
 
-        binding.globalFontItem.setOnClickListener {
-            binding.fontDescription.hideOrShow()
-        }
-
         binding.fontDescription.text = item.font.toString()
 
 

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.greendotcorp.core.theme.app.nextTheme
-import com.greendotcorp.core.theme.lib.ThemeManagerEx
+import com.greendotcorp.core.theme.lib.ThemeProvider
 
 import com.softllc.apps.themeviewer.databinding.ThemeViewChallengesFragmentBinding
 import com.softllc.apps.themeviewer.viewpager.ThemeScreenType
@@ -27,7 +27,7 @@ class ThemeChallengesFragment() : Fragment() {
         binding = ThemeViewChallengesFragmentBinding.inflate(inflater, container, false)
         binding.challengesHeading.text = "${ThemeScreenType.Challenges.name}"
 
-        ThemeManagerEx.current.observe(viewLifecycleOwner, Observer { binding.theme = it })
+        ThemeProvider.current.observe(viewLifecycleOwner, Observer { binding.theme = it })
         binding.root.setOnClickListener {
             nextTheme(this.requireContext())
         }

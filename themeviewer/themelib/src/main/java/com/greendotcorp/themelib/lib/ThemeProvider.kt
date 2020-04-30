@@ -6,13 +6,13 @@ import androidx.lifecycle.MutableLiveData
 /**
  *
  */
-object ThemeManagerEx  { 
+object ThemeProvider  {
 
-    private val _current = MutableLiveData<Theme>()
-    val current : LiveData<Theme> = _current
+    private val _current = MutableLiveData<Theme?>()
+    val current : LiveData<Theme?> = _current
 
-    private val _themes = MutableLiveData<List<Theme>>()
-    val themes : LiveData<List<Theme>> = _themes
+    private val _themes = MutableLiveData<List<Theme>?>()
+    val themes : LiveData<List<Theme>?> = _themes
 
     private val loadedThemes = HashMap<String?, Theme>()
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.greendotcorp.core.theme.lib.ThemeManagerEx
+import com.greendotcorp.core.theme.lib.ThemeProvider
 import com.softllc.apps.themeviewer.databinding.ThemeViewPagerFragmentBinding
 
 class ThemeViewPagerFragment : Fragment() {
@@ -25,7 +25,7 @@ class ThemeViewPagerFragment : Fragment() {
         adapter = ThemeViewPagerAdapter(parentFragmentManager)
         binding.themeViewPagerFragmentViewPager.adapter = adapter
 
-        ThemeManagerEx.current.observe(viewLifecycleOwner, Observer { theme ->
+        ThemeProvider.current.observe(viewLifecycleOwner, Observer { theme ->
             binding.theme = theme
         })
 

@@ -12,10 +12,10 @@ import com.softllc.apps.themeviewer.R
 
 class SpaceTraderTheme (context: Context): Theme, ThemeImpl(context) {
 
-    override val id: String? = "spacetrader_dark"
+    override val id: String = "spacetrader_dark"
 
     override val resourceLocations = mapOf(
-            Pair(ResourceLocation.SharedThemeLocation, "${sharedFileScheme}Themes/SpaceTrader_dark/spaceTrader_dark-"),
+            Pair(ResourceLocation.SharedThemeLocation, "${localFileScheme}Themes/SpaceTrader_dark/spaceTrader_dark-"),
             Pair(ResourceLocation.SharedDrawableLocation, "${id}__"),
             Pair(ResourceLocation.AndroidDrawableLocation, "${id}__")
     )

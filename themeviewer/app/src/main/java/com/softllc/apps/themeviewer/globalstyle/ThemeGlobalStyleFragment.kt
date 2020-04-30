@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.greendotcorp.core.theme.app.ThemeManagerExInit
 import com.greendotcorp.core.theme.app.nextTheme
-import com.greendotcorp.core.theme.lib.ThemeManagerEx
+import com.greendotcorp.core.theme.lib.ThemeProvider
 import com.softllc.apps.themeviewer.databinding.ThemeViewGlobalStyleFragmentBinding
 import com.softllc.apps.themeviewer.viewpager.ThemeViewModel
 
@@ -29,11 +28,8 @@ class ThemeGlobalStyleFragment() : Fragment() {
 
         binding.fontList.layoutManager = LinearLayoutManager(context)
         binding.fontList.adapter = adapter
-
-        binding.root.setOnClickListener {
-            ThemeManagerExInit().loadThemes(requireContext())
-        }
-        ThemeManagerEx.current.observe(viewLifecycleOwner, Observer { theme ->
+        
+        ThemeProvider.current.observe(viewLifecycleOwner, Observer { theme ->
             if (theme != null) {
                 adapter.update(theme)
 
@@ -43,6 +39,11 @@ class ThemeGlobalStyleFragment() : Fragment() {
 
             }
         })
+
+        binding.root.setOnClickListener {
+            nextTheme(this.requireContext())
+        }
+
         return binding.root
     }
 

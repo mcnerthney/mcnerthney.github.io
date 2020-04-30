@@ -8,7 +8,7 @@ interface Theme {
     /**
      * id of the theme
      */
-    val id: String?
+    val id: String
 
     /**
      * Convert the style into a typeface and a text size
@@ -39,6 +39,15 @@ interface Theme {
     fun getPixelCount(style: Any?) : Float?
 
 
+    fun getFloat(style: Any?) : Float?  {
+        when ( style ) {
+            is Float ->  return style
+            is Int -> return style.toFloat()
+            is Double -> return style.toFloat()
+        }
+        return null
+    }
+
     /**
      * start of theme elements
      */
@@ -52,6 +61,8 @@ interface Theme {
     /**
      * finish of theme elements
      */
+
+
 
 
 }

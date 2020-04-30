@@ -35,7 +35,7 @@ abstract class ThemeImpl(val context: Context) {
 
     private val LOG_TAG = "ThemeImpl"
     val localFileScheme = "file:///android_asset/"
-    val sharedFileScheme = "https://mcnerthney.github.io/themeviewer/themelib/src/main/assets/"
+
     protected fun <T : Any> Theme.loadTheme(
         themeFileName: ThemeFileName,
         responseClass: Class<T>
@@ -102,7 +102,7 @@ abstract class ThemeImpl(val context: Context) {
                 val family = themeFont["family"]
                 val weight = themeFont["weight"]
                 val textSize = themeFont["size"]
-                if (family is String && weight is String && textSize is Int) {
+                if (family is String && weight is String && textSize is Number) {
                     val typeface = getTypeFaceResource(family, weight)
                     typeface?.let {
                         returnFont =

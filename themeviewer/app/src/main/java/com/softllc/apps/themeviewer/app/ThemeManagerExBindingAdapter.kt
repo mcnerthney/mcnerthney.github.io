@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.textfield.TextInputEditText
-import com.greendotcorp.core.theme.lib.ThemeManagerEx
+import com.greendotcorp.core.theme.lib.ThemeProvider
 
 /*
 themeManagerEx bindings
@@ -21,7 +21,7 @@ themeManagerEx bindings
 
 @BindingAdapter("t_background")
 fun themeBackgroundBinding(view: View, style: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
 
     val themeDrawable = theme.getDrawable(style)
     themeDrawable.let {
@@ -43,7 +43,7 @@ fun themeBackgroundBinding(view: View, style: Any?) {
 
 @BindingAdapter("t_colorFilter")
 fun themeColorFilerBinding(view: View?, style: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val color = theme.getColor(style)
     color?.let {
         when (view) {
@@ -57,7 +57,7 @@ fun themeColorFilerBinding(view: View?, style: Any?) {
 @BindingAdapter("t_textColorHint")
 fun themeTextColorHintBinding(view: View, style: Any?) {
 
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val color = theme.getColor(style)
 
     color?.let {
@@ -82,7 +82,7 @@ fun themeTextColorHintBinding(view: View, style: Any?) {
 
 @BindingAdapter("t_imageDrawable")
 fun themeImageDrawableBinding(view: View, style: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     var hideView = true
     val themeDrawable = theme.getDrawable(style)
 
@@ -119,7 +119,7 @@ fun themeImageDrawableBinding(view: View, style: Any?) {
 
 @BindingAdapter("t_font")
 fun themeFontBinding(view: View, style: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val font = theme.getFont(style)
 
     font?.let {
@@ -132,7 +132,7 @@ fun themeFontBinding(view: View, style: Any?) {
 
 @BindingAdapter("t_textColor")
 fun themeTextColorBinding(view: View, style: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val color = theme.getColor(style)
 
     color?.let {
@@ -153,7 +153,7 @@ fun themeTextColorBinding(view: View, style: Any?) {
 
 @BindingAdapter("t_marginTop")
 fun themeMarginTopBinding(v: View, topMargin: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(topMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
@@ -165,7 +165,7 @@ fun themeMarginTopBinding(v: View, topMargin: Any?) {
 
 @BindingAdapter("t_marginBottom")
 fun themeMarginBottomBinding(v: View, bottomMargin: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(bottomMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
@@ -177,7 +177,7 @@ fun themeMarginBottomBinding(v: View, bottomMargin: Any?) {
 
 @BindingAdapter("t_marginLeft")
 fun themeMarginLeftBinding(v: View, leftMargin: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(leftMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
@@ -189,7 +189,7 @@ fun themeMarginLeftBinding(v: View, leftMargin: Any?) {
 
 @BindingAdapter("t_marginRight")
 fun themeMarginRightBinding(v: View, rightMargin: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(rightMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
@@ -201,7 +201,7 @@ fun themeMarginRightBinding(v: View, rightMargin: Any?) {
 
 @BindingAdapter("t_layout_width")
 fun themeLayoutWidthBinding(v: View, width: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(width)
     dimen?.let {
         v.layoutParams.width = it.toInt()
@@ -211,7 +211,7 @@ fun themeLayoutWidthBinding(v: View, width: Any?) {
 
 @BindingAdapter("t_layout_height")
 fun themeLayoutHeightBinding(v: View, height: Any?) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(height)
     dimen?.let {
         v.layoutParams.height = it.toInt()
@@ -221,7 +221,7 @@ fun themeLayoutHeightBinding(v: View, height: Any?) {
 
 @BindingAdapter("t_layout_marginHorizontal", "view_fullscreen")
 fun themeLayoutMarginHorizontalBinding(v: View, leftandRightMargin: Any?, viewFullscreen: Int) {
-    val theme = ThemeManagerEx.current.value ?: return
+    val theme = ThemeProvider.current.value ?: return
     val dimen = theme.getPixelCount(leftandRightMargin)
     dimen?.let {
         val layoutParams = v.layoutParams as ViewGroup.MarginLayoutParams
