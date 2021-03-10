@@ -17,7 +17,10 @@
  function recordEvent(){
  var eventName = "af_purchase"
  var eventParams = "{\"af_revenue\":\"6.72\", \"af_content_type\": \"wallets\", \"af_content_id\": \"15854\"}";
- app.recordEvent(eventName, eventParams)
+  
+  webkit.messageHandlers.event.postMessage(eventName + "+" + eventParams);
+ 
+  app.recordEvent(eventName, eventParams)
 }
 </script>
  
