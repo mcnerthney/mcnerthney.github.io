@@ -8,6 +8,19 @@
 
 <body>
 
+ 
+ <h1>Recording Event From Web View</h1>
+<div id="main">
+ <button id="recordEvent" onclick="recordEvent()"> Record Event </button>
+</div>
+<script type="text/javascript">
+ function recordEvent(){
+ var eventName = "af_purchase"
+ var eventParams = "{\"af_revenue\":\"6.72\", \"af_content_type\": \"wallets\", \"af_content_id\": \"15854\"}";
+ app.recordEvent(eventName, eventParams)
+}
+</script>
+ 
 <h1 style="font-size:300%;">App Link Demo for BM App</h1>
  
 <HR>
