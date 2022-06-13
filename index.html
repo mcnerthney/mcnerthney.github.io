@@ -1,62 +1,137 @@
-
-<!doctype html>
-<!--[if lte IE 9]>
-<html lang="en" class="oldie">
-<![endif]-->
-<!--[if gt IE 9]><!-->
-<html lang="en">
-<!--<![endif]-->
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="7wBAHhAPHTCjYSHxCEWFvOSi5dFBWBNiUiFSmUm2FUDSKD+squuF8+Qsej6EmT6tAV26rylZsK7n6HwEmxTxaA==" />
-
-<title>CodePen - Tic Tac Toe</title>
-<link rel="stylesheet" media="screen" href="https://cpwebassets.codepen.io/assets/fullpage/fullpage-1580f96ce81ff0a427cf57dda2748ce646c38efc201ae5942a29958cffa6856d.css" />
-<link rel="stylesheet" media="all" href="https://cpwebassets.codepen.io/assets/global/global-b9b1d5e5124eb38e36b0ff310bd20d9c585366e15aeac445af6d716d22b0e9a5.css" />
-<link rel="stylesheet" media="screen" href="https://cpwebassets.codepen.io/assets/packs/css/everypage-eda3b07a.css" />
-<link rel="stylesheet" media="all" href="https://cpwebassets.codepen.io/assets/page/page-be21d7391d3537792a8c64a95ec81bcdb3dddc035a018c9ffab6e659e736bf1f.css" />
-<link rel="stylesheet" media="all" href="https://cpwebassets.codepen.io/assets/editor/editor-76c94becd624b7756023084930a434dfe6d2d8f8886e453f5273677b4fea3dd1.css" />
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@CodePen">
-<meta name="twitter:title" content="Tic Tac Toe">
-<meta name="twitter:description" content="...">
-<meta name="twitter:image" content="https://shots.codepen.io/gaearon/pen/gWWZgR-800.jpg?version=1651086196">
-<meta property="og:image" content="https://shots.codepen.io/gaearon/pen/gWWZgR-800.jpg?version=1651086196" itemprop="thumbnailUrl">
-<meta property="og:title" content="Tic Tac Toe">
-<meta property="og:url" content="https://codepen.io/gaearon/details/gWWZgR">
-<meta property="og:site_name" content="CodePen">
-<meta property="og:description" content="...">
-<link rel="alternate" type="application/json+oembed" href="https://codepen.io/api/oembed?url=https%3A%2F%2Fcodepen.io%2Fgaearon%2Fpen%2FgWWZgR&format=json" title="Tic Tac Toe" />
-<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
-<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<script nonce="xh1I725/HLg=">
-  /* Firefox needs this to prevent FOUT */
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
 </head>
-<body class="fullpage logged-out sidebar-false">
-<header id="main-header" class="main-header"></header>
-<div class="oldie-header">
-<a href="https://codepen.io/gaearon/pen/gWWZgR">Edit Pen</a>
-</div>
-<div id="result-iframe-wrap" role="main">
-<iframe id="result" src="https://cdpn.io/gaearon/fullpage/gWWZgR" sandbox="allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation" allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write; web-share" allowTransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe" loading="lazy"></iframe>
-</div>
-<div id="full-view-ad"></div>
-<textarea id="init-data" style="display:none">{&quot;__browser&quot;:{&quot;device&quot;:&quot;unknown_device&quot;,&quot;mobile&quot;:false,&quot;name&quot;:&quot;chrome&quot;,&quot;platform&quot;:&quot;mac&quot;,&quot;version&quot;:&quot;102&quot;},&quot;__constants&quot;:{},&quot;__CPDATA&quot;:{&quot;domain_iframe&quot;:&quot;https://cdpn.io&quot;,&quot;environment&quot;:&quot;production&quot;,&quot;host&quot;:&quot;codepen.io&quot;,&quot;iframe_allow&quot;:&quot;accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write; web-share&quot;,&quot;iframe_sandbox&quot;:&quot;allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation&quot;},&quot;__user&quot;:{&quot;anon&quot;:true,&quot;base_url&quot;:&quot;/anon/&quot;,&quot;current_team_id&quot;:0,&quot;current_team_hashid&quot;:null,&quot;hashid&quot;:&quot;VoDkNZ&quot;,&quot;id&quot;:1,&quot;itemType&quot;:&quot;user&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;paid&quot;:false,&quot;tier&quot;:0,&quot;username&quot;:&quot;anon&quot;,&quot;created_at&quot;:null,&quot;email_verified&quot;:null,&quot;collections_count&quot;:0,&quot;collections_private_count&quot;:0,&quot;followers_count&quot;:0,&quot;followings_count&quot;:0,&quot;pens_count&quot;:0,&quot;pens_private_count&quot;:0,&quot;projects_count&quot;:0,&quot;projects_private_count&quot;:0},&quot;__firebase&quot;:{&quot;config&quot;:{&quot;apiKey&quot;:&quot;AIzaSyBgLAe7N_MdFpuVofMkcQLGwwhUu5tuxls&quot;,&quot;authDomain&quot;:&quot;codepen-store-production.firebaseapp.com&quot;,&quot;databaseURL&quot;:&quot;https://codepen-store-production.firebaseio.com&quot;,&quot;disabled&quot;:false,&quot;projectId&quot;:&quot;codepen-store-production&quot;},&quot;token&quot;:&quot;eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImNsYWltcyI6eyJvd25lcklkIjoiVm9Ea05aIiwiYWRtaW4iOmZhbHNlfSwiZXhwIjoxNjU0OTg3MDY1LCJpYXQiOjE2NTQ5ODM0NjUsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLThva3lsQGNvZGVwZW4tc3RvcmUtcHJvZHVjdGlvbi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInN1YiI6ImZpcmViYXNlLWFkbWluc2RrLThva3lsQGNvZGVwZW4tc3RvcmUtcHJvZHVjdGlvbi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInVpZCI6IlZvRGtOWiJ9.IS1KPTyCv0ZJE2jiCDI_NWud5Li1F3yezlKHhJXR2wzWhP_wTBwBIOpYUFUt9sJEFMkxoBWSUgzP0nDQq0xz9-fcU-Dgj5S01XNyijlEp1mZojUQ4T63O_E7fUb2VgN_YDc2sk6_JqpjwDhrdz7gYi7lk6zZRuartK6r_CsEwap2Qs1Ya3GNsDInUgRTbmGILAZRzqUZKYUgm2Mi08qkaIj8svtU2YvF27Dc3OoVZg5FNt_DVEq_vh_4_f46q7Ri1RtKBTunVaMn0EbdsrcWWsFzwfeMjcMxfyUVvEjes9UK61qp0ca_oRaX7mQq3yF99YPKOU9Z5rCjp75zbPvITA&quot;},&quot;__graphql&quot;:{&quot;data&quot;:{&quot;sessionUser&quot;:{&quot;id&quot;:&quot;VoDkNZ&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;title&quot;:&quot;Captain Anonymous&quot;,&quot;avatar80&quot;:&quot;https://assets.codepen.io/t-1/user-default-avatar.jpg?fit=crop&amp;format=auto&amp;height=80&amp;version=0&amp;width=80&quot;,&quot;avatar512&quot;:&quot;https://assets.codepen.io/t-1/user-default-avatar.jpg?fit=crop&amp;format=auto&amp;height=512&amp;version=0&amp;width=512&quot;,&quot;currentContext&quot;:{&quot;id&quot;:&quot;VoDkNZ&quot;,&quot;baseUrl&quot;:&quot;/anon&quot;,&quot;title&quot;:&quot;Captain Anonymous&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;avatar80&quot;:&quot;https://assets.codepen.io/t-1/user-default-avatar.jpg?fit=crop&amp;format=auto&amp;height=80&amp;version=0&amp;width=80&quot;,&quot;avatar512&quot;:&quot;https://assets.codepen.io/t-1/user-default-avatar.jpg?fit=crop&amp;format=auto&amp;height=512&amp;version=0&amp;width=512&quot;,&quot;username&quot;:&quot;anon&quot;,&quot;contextType&quot;:&quot;User&quot;,&quot;__typename&quot;:&quot;User&quot;},&quot;currentTeamId&quot;:null,&quot;baseUrl&quot;:&quot;/anon&quot;,&quot;username&quot;:&quot;anon&quot;,&quot;admin&quot;:false,&quot;anon&quot;:true,&quot;pro&quot;:false,&quot;verified&quot;:false,&quot;teams&quot;:[],&quot;__typename&quot;:&quot;User&quot;}}},&quot;__pay_stripe_public_key&quot;:&quot;pk_live_2GndomDfiklqpSNQn8FrGuwZSMIMzha7DkLJqlYe7IR0ihKAlKdiHg68JJc5eVPt68rzAjzAAVXcUwjySHRCsgjQQ00gtRBUFNH&quot;,&quot;__pay_braintree_env&quot;:&quot;production&quot;,&quot;__item&quot;:&quot;{\&quot;id\&quot;:14690953,\&quot;hashid\&quot;:\&quot;gWWZgR\&quot;,\&quot;itemType\&quot;:\&quot;pen\&quot;,\&quot;user_id\&quot;:215309,\&quot;slug_hash\&quot;:\&quot;gWWZgR\&quot;,\&quot;private\&quot;:false,\&quot;slug_hash_private\&quot;:\&quot;d25b2d5556a38963a1e81e3a879786e0\&quot;}&quot;,&quot;__profiled&quot;:{&quot;base_url&quot;:&quot;/gaearon&quot;,&quot;hashid&quot;:&quot;ZJGgaz&quot;,&quot;id&quot;:215309,&quot;name&quot;:&quot;Dan Abramov&quot;,&quot;type&quot;:&quot;user&quot;,&quot;username&quot;:&quot;gaearon&quot;},&quot;__pageType&quot;:&quot;full&quot;}</textarea>
-<div id="popup-overlay" class="overlay popup-overlay"></div>
-<div id="modal-overlay" class="overlay modal-overlay"></div>
-<script src="https://cpwebassets.codepen.io/assets/common/everypage-f84dd91ff413b23b8d1a6f7eadc615dc53c384f74f8254e068449db735b2c8cd.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/common/analytics_and_notifications-49dbf9eb3e832169ceaad20dab2e210aae9832821d457c2dbb846d10d04243c6.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/packs/js/vendor-1588e0eede57e8ec0d99.chunk.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/packs/js/1-5e856db406017661fbf4.chunk.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/packs/js/referrer-tracking-1d5843d46337423abecd.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/packs/js/vendor-1588e0eede57e8ec0d99.chunk.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/packs/js/1-5e856db406017661fbf4.chunk.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/packs/js/everypage-27ab4cb99d79ccc660a2.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/editor/full/full_page_renderer-8edf9934af5f33c7e00fe30580012df4d2ab48aad3bcc7f581030e5b876bff3b.js"></script>
+<body onload="startGame()">
+<script>
+
+var myGamePiece;
+var myObstacles = [];
+var myScore;
+
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece.gravity = 0.05;
+    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.score = 0;
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+    }
+    this.hitBottom = function() {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.gravitySpeed = 0;
+        }
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            return;
+        } 
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+        x = myGameArea.canvas.width;
+        minHeight = 20;
+        maxHeight = 200;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+        myObstacles.push(new component(10, height, "green", x, 0));
+        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].x += -1;
+        myObstacles[i].update();
+    }
+    myScore.text="SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function accelerate(n) {
+    myGamePiece.gravity = n;
+}
+</script>
+<br>
+<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
+<p>Use the ACCELERATE button to stay in the air</p>
+<p>How long can you stay alive?</p>
 </body>
 </html>
