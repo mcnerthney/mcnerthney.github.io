@@ -1,9 +1,5 @@
-<p> 
-<h1>Tapcart Custom Blocks
-<p>
 <p id="id"></p>
 <p id="timer"></p>
-
 <script>
  
 document.getElementById("id").innerHTML = window.location.search;
@@ -27,16 +23,10 @@ setInterval(function() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
     // Output the result in an element with id="demo"
-    document.getElementById("timer").innerHTML = hours + "h "
-    + minutes + "m " + seconds + "s ";
+    document.getElementById("timer").innerHTML = distance;
     
 }, 1000);
 
- 
 </script>
- 
-<a href="sms:5036794375">SMS</a>
- <a href="mailto:dan@tapcart.co">MailT</a>
- <a href="https://goo.gl/maps/8y26UdFZMvWbA4HH8">https://goo.gl</a>
-<input type="text">
+
 </h1>
