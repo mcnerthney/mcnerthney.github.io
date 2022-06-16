@@ -3,8 +3,8 @@
 <script>
 
  var pageid = window.location.search;
- var pagevalue = localStorage.getItem(pageid);
- var nextpagevalue = parseInt(pagevalue) + 1;
+ var pagevalue = parseInt(localStorage.getItem(pageid) || 0;
+ var nextpagevalue = pagevalue + 1;
  localStorage.setItem(pageid, nextpagevalue);
  
  
