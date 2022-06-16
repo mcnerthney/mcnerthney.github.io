@@ -4,7 +4,7 @@
 
  var pageid = window.location.search;
  var pagevalue = localStorage.getItem(pageid);
- var nextpagevalue = pagevalue + 1;
+ var nextpagevalue = parseInt(pagevalue) + 1;
  localStorage.setItem(pageid, nextpagevalue);
  
  
