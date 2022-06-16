@@ -1,5 +1,5 @@
-<p id="id"></p>
-<p id="timer"></p>
+<b><p id="id"></p>
+ <p id="timer"></p></b>
 <script>
  
 document.getElementById("id").innerHTML = window.location.search;
@@ -18,7 +18,7 @@ setInterval(function() {
     var distance = now - countDownDate;
        
     // Output the result in an element with id="demo"
-    document.getElementById("timer").innerHTML = distance;
+    document.getElementById("timer").innerHTML = distance / 1000;
     
 }, 1000);
 
