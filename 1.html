@@ -1,8 +1,14 @@
 <b><p id="id"></p>
  <p id="timer"></p></b>
 <script>
+
+ val pageid = window.location.search;
+ val pagevalue = localStorage.getItem(pageid);
+ val nextpagevalue = pagevalue + 1
+ localStorage.setItem(pageid, nextpagevalue);
  
-document.getElementById("id").innerHTML = window.location.search;
+ 
+document.getElementById("id").innerHTML = 
  
 // Set the date we're counting down to
 
@@ -21,6 +27,7 @@ setInterval(function() {
     document.getElementById("timer").innerHTML = distance / 1000;
     
 }, 1000);
+
 
 </script>
 
