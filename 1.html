@@ -4,11 +4,11 @@
 
  val pageid = window.location.search;
  val pagevalue = localStorage.getItem(pageid);
- val nextpagevalue = pagevalue + 1
+ val nextpagevalue = pagevalue + 1;
  localStorage.setItem(pageid, nextpagevalue);
  
  
-document.getElementById("id").innerHTML = 
+document.getElementById("id").innerHTML = pageid;
  
 // Set the date we're counting down to
 
