@@ -2,9 +2,9 @@
  <p id="timer"></p></b>
 <script>
 
- val pageid = window.location.search;
- val pagevalue = localStorage.getItem(pageid);
- val nextpagevalue = pagevalue + 1;
+ var pageid = window.location.search;
+ var pagevalue = localStorage.getItem(pageid);
+ var nextpagevalue = pagevalue + 1;
  localStorage.setItem(pageid, nextpagevalue);
  
  
