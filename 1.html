@@ -1,34 +1,43 @@
-<b><p id="id"></p>
- <p id="timer"></p></b>
-<script>
+<!DOCTYPE html>
+<html lang="en">
 
- var pageid = window.location.search;
- var pagevalue = parseInt(localStorage.getItem(pageid)) || 0;
- var nextpagevalue = pagevalue + 1;
- localStorage.setItem(pageid, nextpagevalue);
- 
- 
-document.getElementById("id").innerHTML = pageid + "." + nextpagevalue;
- 
-// Set the date we're counting down to
+<head>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <meta http-equiv="Content-Security-Policy" content="frame-src
+  ">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Tapcart Custom Block</title>
 
-var countDownDate = new Date().getTime();
+  <script src="https://storage.googleapis.com/custom-blocks.tapcart.xyz/_static/1.0.0/scripts/sdk.js"></script>
+  <style>
+    #root {
+      overflow: hidden;
+    }
+  </style>
 
-// Update the count down every 1 second
-setInterval(function() {
+</head>
 
-    // Get todays date and time
-    var now = new Date().getTime();
+<body id="body">
+
+
+
+
+  <style id="tapcart-merchant-css">
     
-    // Find the distance between now an the count down date
-    var distance = now - countDownDate;
-       
-    // Output the result in an element with id="demo"
-    document.getElementById("timer").innerHTML = distance / 1000;
+  </style>
+
+  <div id="tapcart-root"></div>
+
+  <script id="tapcart-merchant-html" type="text/javascript">
+    Handlebars.partials["tapcart-root"] = Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "test bug update";
+},"useData":true}); 
+  </script>
+  <script id="tapcart-merchant-js" type="text/tapcartscript">
     
-}, 1000);
+  </script>
 
+</body>
 
-</script>
-
-</h1>
+</html>
